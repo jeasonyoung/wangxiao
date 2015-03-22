@@ -2,17 +2,17 @@ use master
 go 
  
 IF EXISTS (SELECT * FROM sys.databases WHERE name = 'ESchoolSystemDB') 
- DROP DATABASE ESchoolSystemDB  --Èç¹û´æÔÚÔòÉ¾³ı 
+ DROP DATABASE ESchoolSystemDB  --å¦‚æœå­˜åœ¨åˆ™åˆ é™¤ 
 GO 
---½¨¿â 
+--å»ºåº“ 
 CREATE DATABASE ESchoolSystemDB 
-ON PRIMARY( --PRIMARY ¿ÉÑ¡Ö¸¶¨Ö÷ÎÄ¼ş×éÖĞµÄÎÄ¼ş 
+ON PRIMARY( --PRIMARY å¯é€‰æŒ‡å®šä¸»æ–‡ä»¶ç»„ä¸­çš„æ–‡ä»¶ 
   
- NAME = 'ESchoolSystemDB_data', --Ö÷Êı¾İÎÄ¼şµÄÂß¼­Ãû 
- FILENAME = 'D:\SQL\ESchoolSystemDB_data.mdf' , --Ö÷Êı¾İÎÄ¼şµÄÎïÀíÃû(ÒªÓĞD:/SQLÕâ¸öÎÄ¼ş¼Ğ)
- SIZE = 3MB,      --Ö÷Êı¾İÎÄ¼ş³õÊ¼´óĞ¡ 
- MAXSIZE = 5MB,    --Ö÷Êı¾İÎÄ¼ş×î´ó´óĞ¡£¿£¿£¨Éè¶à´ó£¿£©
- FILEGROWTH = 20%   --Ö÷Êı¾İÎÄ¼şµÄÔö³¤ÂÊ  
+ NAME = 'ESchoolSystemDB_data', --ä¸»æ•°æ®æ–‡ä»¶çš„é€»è¾‘å 
+ FILENAME = 'D:\SQL\ESchoolSystemDB_data.mdf' , --ä¸»æ•°æ®æ–‡ä»¶çš„ç‰©ç†å(è¦æœ‰D:/SQLè¿™ä¸ªæ–‡ä»¶å¤¹)
+ SIZE = 3MB,      --ä¸»æ•°æ®æ–‡ä»¶åˆå§‹å¤§å° 
+ MAXSIZE = 5MB,    --ä¸»æ•°æ®æ–‡ä»¶æœ€å¤§å¤§å°ï¼Ÿï¼Ÿï¼ˆè®¾å¤šå¤§ï¼Ÿï¼‰
+ FILEGROWTH = 20%   --ä¸»æ•°æ®æ–‡ä»¶çš„å¢é•¿ç‡  
 )
 LOG ON 
 ( 
@@ -24,19 +24,19 @@ LOG ON
  FILEGROWTH = 20% 
 )
  go 
---½¨±í 
-use ESchoolSystemDB  --±ØĞëÊ¹ÓÃESchoolSystemDBÕâ¸öÊı¾İ¿â,²»È»Äã½¨Á¢µÄ±íÔÚmasterÊı¾İ¿âÀïÃæ 
+--å»ºè¡¨ 
+use ESchoolSystemDB  --å¿…é¡»ä½¿ç”¨ESchoolSystemDBè¿™ä¸ªæ•°æ®åº“,ä¸ç„¶ä½ å»ºç«‹çš„è¡¨åœ¨masteræ•°æ®åº“é‡Œé¢ 
 go 
 IF EXISTS(SELECT * FROM sys.objects WHERE name='tbStudent') 
   DROP TABLE tbStudent 
---1,´´½¨Ñ§Ô±±ítbStudent-- 
+--1,åˆ›å»ºå­¦å‘˜è¡¨tbStudent-- 
 CREATE TABLE tbStudent 
 ( 
- id bigint identity(1,1),--£¿£¿£¿--
+ id bigint identity(1,1),--ï¼Ÿï¼Ÿï¼Ÿ--
  stu_id  bigint primary key ,
- stu_name varchar(20) unique not null,--ÓÃ»§Ãû£¬Î¨Ò»ÇÒ²»Îª¿Õ
- stu_password varchar(50) not null,--ÃÜÂë
- stu_email varchar(50) unique not null,--email£¬Î¨Ò»ÇÒ²»Îª¿Õ
+ stu_name varchar(20) unique not null,--ç”¨æˆ·åï¼Œå”¯ä¸€ä¸”ä¸ä¸ºç©º
+ stu_password varchar(50) not null,--å¯†ç 
+ stu_email varchar(50) unique not null,--emailï¼Œå”¯ä¸€ä¸”ä¸ä¸ºç©º
  stu_phone varchar(20),
  stu_mobile varchar(20),
  stu_trueName varchar(20),
@@ -51,18 +51,18 @@ CREATE TABLE tbStudent
  stu_score  int
 )  
 GO 
---Îª±ítbStudent´´½¨Ô¼Êø[ÔÚÍâÌí¼ÓÔ¼Êø]-- 
+--ä¸ºè¡¨tbStudentåˆ›å»ºçº¦æŸ[åœ¨å¤–æ·»åŠ çº¦æŸ]-- 
 ALTER TABLE tbStudent 
-  ADD --CONSTRAINT PK_stuNo      PRIMARY KEY(stuNo),--Ö÷¼üÔ¼Êø 
-     --CONSTRAINT UQ_stuNo      UNIQUE (stuNo),--Î¨Ò»Ô¼Êø 
-      --CONSTRAINT CK_stuNo      CHECK(stuNo LIKE 'S253[0-9][0-9]'),--¼ì²éÔ¼Êø 
-      CONSTRAINT CK_stuSex     CHECK(stu_sex='ÄĞ' OR stu_sex='Å®'), 
+  ADD --CONSTRAINT PK_stuNo      PRIMARY KEY(stuNo),--ä¸»é”®çº¦æŸ 
+     --CONSTRAINT UQ_stuNo      UNIQUE (stuNo),--å”¯ä¸€çº¦æŸ 
+      --CONSTRAINT CK_stuNo      CHECK(stuNo LIKE 'S253[0-9][0-9]'),--æ£€æŸ¥çº¦æŸ 
+      CONSTRAINT CK_stuSex     CHECK(stu_sex='ç”·' OR stu_sex='å¥³'), 
       --CONSTRAINT CK_stuAge     CHECK(stuAge BETWEEN 15 AND 40), 
       --CONSTRAINT CK_stuSeat    CHECK(stuSeat<=30), 
-      CONSTRAINT DF_stuAddress DEFAULT ('µØÖ·²»Ïê') FOR stu_addr --Ä¬ÈÏÖµÉèÖÃ 
+      CONSTRAINT DF_stuAddress DEFAULT ('åœ°å€ä¸è¯¦') FOR stu_addr --é»˜è®¤å€¼è®¾ç½® 
   
 GO 
---2,´´½¨½ÌÊ¦±ítbTeacher-- 
+--2,åˆ›å»ºæ•™å¸ˆè¡¨tbTeacher-- 
 IF EXISTS(SELECT * FROM sys.objects WHERE name='tbTeacher') 
   DROP TABLE tbTeacher
 CREATE TABLE tbTeacher 
@@ -71,26 +71,26 @@ CREATE TABLE tbTeacher
     tch_id int primary key,
     tch_username varchar(20) unique not null,
     tch_password varchar(50) not null,
-    tch_name varchar(20),--ÕæÊµĞÕÃû
+    tch_name varchar(20),--çœŸå®å§“å
     tch_phone varchar(20),
-    tch_description varchar(200),--ÀÏÊ¦¼ò½é
-    tch_lessons varchar(100),--Ëù½Ì¿Î³Ì
-    tch_valuation varchar(200),--ÆÀ¼Û
-    tch_score int ,--ÆÀ·Ö
-    tch_imgURL varchar(100) --Í·ÏñµØÖ·
+    tch_description varchar(200),--è€å¸ˆç®€ä»‹
+    tch_lessons varchar(100),--æ‰€æ•™è¯¾ç¨‹
+    tch_valuation varchar(200),--è¯„ä»·
+    tch_score int ,--è¯„åˆ†
+    tch_imgURL varchar(100) --å¤´åƒåœ°å€
 ) 
 GO 
---Îª±ítbTeacher´´½¨Ô¼Êø-- 
+--ä¸ºè¡¨tbTeacheråˆ›å»ºçº¦æŸ-- 
 --ALTER TABLE tbTeacher 
    --ADD CONSTRAINT PK_ExamNo         PRIMARY KEY(ExamNo), 
      --  CONSTRAINT CK_ExamNo         CHECK(ExamNo LIKE 'S2718[0-9][0-9]'), 
-       --CONSTRAINT FK_stuNo          FOREIGN KEY(stuNo) REFERENCES stuInfo(stuNo),--Íâ¼üÔ¼Êø 
+       --CONSTRAINT FK_stuNo          FOREIGN KEY(stuNo) REFERENCES stuInfo(stuNo),--å¤–é”®çº¦æŸ 
   --     CONSTRAINT CK_writtenExam    CHECK(writtenExam BETWEEN 0 AND 100),        CONSTRAINT DF_writtenExam    DEFAULT 0 FOR writtenExam, 
     --   CONSTRAINT CK_LabExam        CHECK(LabExam BETWEEN 0 AND 100), 
       -- CONSTRAINT DF_LabExam        DEFAULT 0 FOR LabExam 
 GO 
 
---´´½¨¹ÜÀíÔ±±ítbAdministrator
+--åˆ›å»ºç®¡ç†å‘˜è¡¨tbAdministrator
 if exists(
    select * from sys.objects 
    where name='tbAdministor'
@@ -107,14 +107,14 @@ create table tbAdministor
    adm_password         varchar(50)                    not null,
    adm_name             varchar(20)                    null,
    adm_addTime          datetime                       null,
-   adm_loginNumbers     int                            null,--µÇÂ¼´ÎÊı--
+   adm_loginNumbers     int                            null,--ç™»å½•æ¬¡æ•°--
    adm_lastLoginTime    datatime                       null,
    adm_lastLoginIP      varchar(20)                    null,
    adm_level            varchar(10)                    null,
-   adm_status           int                            null,--ÕÊºÅ×´Ì¬[0:ÎªÆôÓÃ£¬1£ºÆôÓÃ]--
+   adm_status           int                            null,--å¸å·çŠ¶æ€[0:ä¸ºå¯ç”¨ï¼Œ1ï¼šå¯ç”¨]--
    constraint PK_TBADMINISTOR primary key clustered (adm_id)
 );
---´´½¨½ÌÊ¦±ítbTeacher--
+--åˆ›å»ºæ•™å¸ˆè¡¨tbTeacher--
 if exists(
    select * from sys.objects 
    where name='tbTeacher'
@@ -142,7 +142,7 @@ create table tbTeacher
    tch_valuation        varchar(200)                   null,
    tch_status           int                            null
 );
---´´½¨Ñ§Ô±±ítbStudent--
+--åˆ›å»ºå­¦å‘˜è¡¨tbStudent--
 if exists(
    select * from sys.objects 
    where name='tbStudent'
@@ -175,7 +175,7 @@ create table tbStudent
    stu_status           int                            null,
    constraint PK_TBSTUDENT primary key clustered (stu_id)
 );
---´´½¨¿¼ÊÔ·ÖÀà±ítbExamCategory--
+--åˆ›å»ºè€ƒè¯•åˆ†ç±»è¡¨tbExamCategory--
 if exists(
    select * from sys.objects 
    where name='tbExamCategory'
@@ -196,7 +196,7 @@ create table tbExamCategory
    exam_orderId         int                            null,
    constraint PK_TBEXAMCATEGORY primary key clustered (exam_id)
 );
---´´½¨°à¼¶ÀàĞÍ±ítbGradeCategory--
+--åˆ›å»ºç­çº§ç±»å‹è¡¨tbGradeCategory--
 if exists(
    select * from sys.objects 
    where name='tbGradeCategory'
@@ -213,7 +213,7 @@ create table tbGradeCategory
    gType_name           varchar(20)                    null,
    constraint PK_TBGRADECATEGORY primary key clustered (gType_id)
 );
---´´½¨¿Î³Ì°à¼¶±ítbGrade--
+--åˆ›å»ºè¯¾ç¨‹ç­çº§è¡¨tbGrade--
 if exists(
    select * from sys.objects 
    where name='tbGrade'
@@ -231,12 +231,12 @@ create table tbGrade
    gType_id             int                            null,
    tch_id               int                            null,
    grade_time           int                            null,
-   grade_oPrice         float                          null,--Ô­¼Û--
-   grade_rPrice         float                          null,--ÓÅ»İ¼Û--
+   grade_oPrice         float                          null,--åŸä»·--
+   grade_rPrice         float                          null,--ä¼˜æƒ ä»·--
    grade_single         int                            null,
    grade_addTime        datetime                       null,
    adm_id               int                            null,
-   grade_dueTime        datetime                       null, --µ½ÆÚÊ±¼ä--
+   grade_dueTime        datetime                       null, --åˆ°æœŸæ—¶é—´--
    deal_id              int                            null,
    constraint PK_TBGRADE primary key clustered (grade_id)
 );
@@ -247,7 +247,7 @@ alter table tbGrade
    constraint FK_TBGRADE_REFERENCE_TBEXAMCA foreign key (exam_id)
       references tbExamCategory (exam_id)
 
---´´½¨¿Î³ÌÌ×²Í·ÖÀà±ítbPackageCategory--
+--åˆ›å»ºè¯¾ç¨‹å¥—é¤åˆ†ç±»è¡¨tbPackageCategory--
 if exists(
    select * from sys.objects 
    where name='tbPackageCategory'
@@ -269,7 +269,7 @@ create table tbPackageCategory
    pType_addTime        datetime                       null,
    pType_description    varchar(1000)                  null
 );
---´´½¨¿Î³ÌÌ×²Í±ítbClassPackage--
+--åˆ›å»ºè¯¾ç¨‹å¥—é¤è¡¨tbClassPackage--
 if exists(
    select * from sys.objects 
    where name='tbClassPackage'
@@ -302,7 +302,7 @@ alter table tbClassPackage
    add constraint FK_TBCLASSP_REFERENCE_TBPACKAG foreign key ()
       references tbPackageCategory
 
---´´½¨¿Î³ÌÏêÏ¸±ítbClassDetail--
+--åˆ›å»ºè¯¾ç¨‹è¯¦ç»†è¡¨tbClassDetail--
 if exists(
    select * from sys.objects 
    where name='tbClassDetail'
@@ -333,7 +333,7 @@ create table tbClassDetail
 alter table tbClassDetail
    add constraint FK_TBCLASSD_REFERENCE_TBGRADE foreign key (grade_id)
       references tbGrade (grade_id)
---´´½¨½²Òå±ítbLecture--
+--åˆ›å»ºè®²ä¹‰è¡¨tbLecture--
 if exists(select * from sys.sysforeignkey where role='FK_TBLECTUR_REFERENCE_TBCLASSD') 
     alter table tbLecture
        delete foreign key FK_TBLECTUR_REFERENCE_TBCLASSD
@@ -362,7 +362,7 @@ alter table tbLecture
    add constraint FK_TBLECTUR_REFERENCE_TBCLASSD foreign key (class_id)
       references tbClassDetail (class_id)
 
---´´½¨Ğ­Òé±ítbDeal--\
+--åˆ›å»ºåè®®è¡¨tbDeal--\
 if exists(
    select * from sys.objects 
    where name='tbDeal'
@@ -380,7 +380,7 @@ create table tbDeal
    constraint PK_TBDEAL primary key clustered (deal_id)
 );
 
---´´½¨Ñ§Ô±Ñ§Ï°¼ÇÂ¼±ítbStudyRecord--
+--åˆ›å»ºå­¦å‘˜å­¦ä¹ è®°å½•è¡¨tbStudyRecord--
 if exists(
    select * from sys.objects 
    where name='tbStudyRecord'
@@ -408,7 +408,7 @@ alter table tbStudyRecord
    add constraint FK_TBSTUDYR_REFERENCE_TBSTUDEN foreign key (stu_id)
       references tbStudent (stu_id)
 
---´´½¨Ñ§Ô±±Ê¼Ç±ítbNote--
+--åˆ›å»ºå­¦å‘˜ç¬”è®°è¡¨tbNote--
 if exists(
    select * from sys.objects 
    where name='tbNote'
@@ -434,7 +434,7 @@ alter table tbNote
    add constraint FK_TBNOTE_REFERENCE_TBSTUDEN foreign key (stu_id)
       references tbStudent (stu_id)
 
---´´½¨ÎÊÌâÏêÏ¸±ítbQuestion
+--åˆ›å»ºé—®é¢˜è¯¦ç»†è¡¨tbQuestion
 if exists(
    select * from sys.objects 
    where name='tbQuestion'
@@ -453,7 +453,7 @@ create table tbQuestion
    exam_id              int                            null,
    grade_id             int                            null,
    class_id             int                            null,
-   ÎÊÌâ³ö´¦                 char(10)                       null,
+   é—®é¢˜å‡ºå¤„                 char(10)                       null,
    question_title       varchar(50)                    null,
    question_content     varchar(500)                   null,
    question_status      int                            null,
@@ -464,7 +464,7 @@ create table tbQuestion
 alter table tbQuestion
    add constraint FK_TBQUESTI_REFERENCE_TBSTUDEN foreign key (stu_id)
       references tbStudent (stu_id)
---´´½¨´ğ°¸±ítbAnswer--
+--åˆ›å»ºç­”æ¡ˆè¡¨tbAnswer--
 if exists(
    select * from sys.objects 
    where name='tbAnswer'
@@ -487,7 +487,7 @@ create table tbAnswer
    answer_valuation     int                            null
 );
 
---´´½¨ÎÊÌâÊÕ²Ø±í--
+--åˆ›å»ºé—®é¢˜æ”¶è—è¡¨--
 if exists(
    select * from sys.objects 
    where name='tbQuestionCollect'
@@ -510,7 +510,7 @@ alter table tbQuestionCollect
    add constraint FK_TBQUESTI_REFERENCE_TBSTUDEN foreign key (stu_id)
       references tbStudent (stu_id)
 --
---´´½¨¶©µ¥±ítbOrder--
+--åˆ›å»ºè®¢å•è¡¨tbOrder--
 if exists(
    select * from sys.objects 
    where name='tbOrder'
@@ -542,7 +542,7 @@ alter table tbOrder
    add constraint FK_TBORDER_REFERENCE_TBSTUDEN foreign key (stu_id)
       references tbStudent (stu_id)
 
---´´½¨¶©µ¥ÏêÏ¸±ítbItems--
+--åˆ›å»ºè®¢å•è¯¦ç»†è¡¨tbItems--
 
 if exists(
    select * from sys.objects 
@@ -570,7 +570,7 @@ alter table tbItems
    add constraint FK_ITEMS_REFERENCE_TBORDER foreign key ()
       references tbOrder
 
---´´½¨¼ÄËÍ±ítbSend--
+--åˆ›å»ºå¯„é€è¡¨tbSend--
 if exists(
    select * from sys.objects 
    where name='tbSend'
@@ -592,7 +592,7 @@ create table tbSend
    send_person          varchar(20)                    null,
    send_confirmTime     datetime                       null
 );
---´´½¨¿ìµİ¹«Ë¾±ítbExpressCompany--
+--åˆ›å»ºå¿«é€’å…¬å¸è¡¨tbExpressCompany--
 if exists(
    select * from sys.objects 
    where name='tbExpressCompany'
@@ -613,7 +613,7 @@ create table tbExpressCompany
    epc_orderId          int                            null
 );
     
---´´½¨Ñ§Ô±ÕË»§±ítbAccount--
+--åˆ›å»ºå­¦å‘˜è´¦æˆ·è¡¨tbAccount--
 if exists(
    select * from sys.objects 
    where name='tbAccount'
@@ -637,7 +637,7 @@ alter table tbAccount
    add constraint FK_TBACCOUN_REFERENCE_TBSTUDEN foreign key (stu_id)
       references tbStudent (stu_id);
 
---´´½¨Ñ§Ï°¿¨±í--
+--åˆ›å»ºå­¦ä¹ å¡è¡¨--
 if exists(
    select * from sys.objects 
    where name='tbCard'
@@ -662,7 +662,7 @@ create table tbCard
    card_isPresent       int                            null,
    constraint PK_TBCARD primary key clustered (card_id)
 );
- --´´½¨³äÖµ¼ÇÂ¼±í--
+ --åˆ›å»ºå……å€¼è®°å½•è¡¨--
 
 if exists(
    select * from sys.objects
@@ -735,9 +735,9 @@ CREATE TABLE `t_s_log` (
   `id` varchar(32) NOT NULL,
   `userid` varchar(32) default NULL,
   `loglevel` smallint(6) default NULL,
-  `operatetime` datetime NOT NULL COMMENT '²Ù×÷Ê±¼ä',
-  `operatetype` smallint(6) default NULL COMMENT '²Ù×÷ÀàĞÍ£º1µÇÂ¼¡¢2ÍË³ö¡¢3²åÈë¡¢4É¾³ı¡¢5¸üĞÂ¡¢6´òÓ¡¡¢7ÉÏ´«¡¢8ÆäËû',
-  `logcontent` text NOT NULL COMMENT 'ÈÕÖ¾ÄÚÈİ',
+  `operatetime` datetime NOT NULL COMMENT 'æ“ä½œæ—¶é—´',
+  `operatetype` smallint(6) default NULL COMMENT 'æ“ä½œç±»å‹ï¼š1ç™»å½•ã€2é€€å‡ºã€3æ’å…¥ã€4åˆ é™¤ã€5æ›´æ–°ã€6æ‰“å°ã€7ä¸Šä¼ ã€8å…¶ä»–',
+  `logcontent` text NOT NULL COMMENT 'æ—¥å¿—å†…å®¹',
   `note` text,
   `broswer` varchar(100) default NULL,
   PRIMARY KEY  (`id`),
@@ -751,7 +751,7 @@ create table tbLog
    adm_id               int ,
    adm_username         varchar(50)    not null,
    operatetime   		datetime          not null,
-   operatetype			int     not null,--²Ù×÷ÀàĞÍ£º1µÇÂ¼¡¢2ÍË³ö¡¢3²åÈë¡¢4É¾³ı¡¢5¸üĞÂ¡¢6´òÓ¡¡¢7ÉÏ´«¡¢8ÆäËû--
+   operatetype			int     not null,--æ“ä½œç±»å‹ï¼š1ç™»å½•ã€2é€€å‡ºã€3æ’å…¥ã€4åˆ é™¤ã€5æ›´æ–°ã€6æ‰“å°ã€7ä¸Šä¼ ã€8å…¶ä»–--
    logconten       		varchar(50)					not	null,
    broswer       	 	varchar(100) not null,
    ip					varchar(50)	 not null,
@@ -765,17 +765,17 @@ select count(*) from tbLog where  adm_username like '%jw%'
 create table tbNews(
 	new_id int identity(1001,1) primary key,
 	new_title varchar(500) not null,
-	sub_time varchar(500) default null comment '¸±±êÌâ',
-	new_content text not null comment 'ĞÂÎÅÄÚÈİ',
-	click_num int default 1 comment 'µã»÷´ÎÊı',
-	is_top  int default 0 comment 'ÊÇ·ñÖÃ¶¥',
-	new_templet varchar(250) default null comment 'ĞÂÎÅÄ£°å',
-	new_path varchar(250) default null comment 'Â·¾¶',
-	exam_id int default null comment '¿¼ÊÔÀà±ğ',
-	class_id int default null comment '×ÊÑ¶Àà±ğ',
+	sub_time varchar(500) default null comment 'å‰¯æ ‡é¢˜',
+	new_content text not null comment 'æ–°é—»å†…å®¹',
+	click_num int default 1 comment 'ç‚¹å‡»æ¬¡æ•°',
+	is_top  int default 0 comment 'æ˜¯å¦ç½®é¡¶',
+	new_templet varchar(250) default null comment 'æ–°é—»æ¨¡æ¿',
+	new_path varchar(250) default null comment 'è·¯å¾„',
+	exam_id int default null comment 'è€ƒè¯•ç±»åˆ«',
+	class_id int default null comment 'èµ„è®¯ç±»åˆ«',
 	order_id int  default 0,
 	add_time datetime not null,
-	aditor varchar(100) not null comment 'Ìí¼ÓÕß',
+	aditor varchar(100) not null comment 'æ·»åŠ è€…',
 )default charset=utf8;
 
 
