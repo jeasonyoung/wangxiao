@@ -22,7 +22,6 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 /**
  * 字符串处理及转换工具类
  * 
@@ -34,7 +33,7 @@ public class StringUtil {
 	private static Pattern abcPattern = Pattern.compile("^[a-z|A-Z]+$");
 	public static final String splitStrPattern = ",|，|;|；|、|\\.|。|-|_|\\(|\\)|\\[|\\]|\\{|\\}|\\\\|/| |　|\"";
 	private static Log logger = LogFactory.getLog(StringUtil.class);
-
+	
 	/**
 	 * 判断是否数字表示
 	 * 
@@ -52,7 +51,6 @@ public class StringUtil {
 		}
 		return return_value;
 	}
-
 	/**
 	 * 判断是否数字表示
 	 * 
@@ -70,7 +68,6 @@ public class StringUtil {
 		}
 		return return_value;
 	}
-
 	/**
 	 * 判断是否纯字母组合
 	 * 
@@ -88,7 +85,6 @@ public class StringUtil {
 		}
 		return return_value;
 	}
-
 	/**
 	 * 判断是否浮点数字表示
 	 * 
@@ -106,7 +102,6 @@ public class StringUtil {
 		}
 		return return_value;
 	}
-
 	/**
 	 * 把string array or list用给定的符号symbol连接成一个字符串
 	 * 
@@ -114,6 +109,7 @@ public class StringUtil {
 	 * @param symbol
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	public static String joinString(List array, String symbol) {
 		String result = "";
 		if (array != null) {
@@ -127,14 +123,12 @@ public class StringUtil {
 		}
 		return result;
 	}
-
 	public static String subStringNotEncode(String subject, int size) {
 		if (subject != null && subject.length() > size) {
 			subject = subject.substring(0, size) + "...";
 		}
 		return subject;
 	}
-
 	/**
 	 * 截取字符串　超出的字符用symbol代替 　　
 	 * 
@@ -175,7 +169,6 @@ public class StringUtil {
 			strRet = null;
 		}
 	}
-
 	/**
 	 * 截取字符串　超出的字符用symbol代替 　　
 	 * 
@@ -188,7 +181,6 @@ public class StringUtil {
 	public static String getLimitLengthString(String str, int len) {
 		return getLimitLengthString(str, len, "...");
 	}
-
 	/**
 	 * 
 	 * 截取字符，不转码
@@ -203,7 +195,6 @@ public class StringUtil {
 		}
 		return subject;
 	}
-
 	/**
 	 * 把string array or list用给定的符号symbol连接成一个字符串
 	 * 
@@ -224,7 +215,6 @@ public class StringUtil {
 		}
 		return result;
 	}
-
 	/**
 	 * 取得字符串的实际长度（考虑了汉字的情况）
 	 * 
@@ -242,7 +232,6 @@ public class StringUtil {
 		}
 		return return_value;
 	}
-
 	/**
 	 * 检查数据串中是否包含非法字符集
 	 * 
@@ -261,7 +250,6 @@ public class StringUtil {
 
 		return false;
 	}
-
 	/***************************************************************************
 	 * getHideEmailPrefix - 隐藏邮件地址前缀。
 	 * 
@@ -399,6 +387,7 @@ public class StringUtil {
 	 * @param map
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	public static String linkedHashMapToString(LinkedHashMap<String, String> map) {
 		if (map != null && map.size() > 0) {
 			String result = "";
@@ -421,7 +410,7 @@ public class StringUtil {
 	 * @param str
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static LinkedHashMap<String, String> toLinkedHashMap(String str) {
 		if (str != null && !str.equals("") && str.indexOf("=") > 0) {
 			LinkedHashMap result = new LinkedHashMap();
@@ -610,6 +599,7 @@ public class StringUtil {
 	 * @param xml
 	 * @return
 	 */
+	@SuppressWarnings("resource")
 	public static Object xmlToObject(String xml) {
 		try {
 			ByteArrayInputStream in = new ByteArrayInputStream(xml.getBytes("UTF8"));
@@ -1435,7 +1425,7 @@ public class StringUtil {
 	 * @return map
 	 * @author sky
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Map<String, String> parseQuery(String query, char split1, char split2, String dupLink) {
 		if (!isEmpty(query) && query.indexOf(split2) > 0) {
 			Map<String, String> result = new HashMap();
@@ -1489,7 +1479,7 @@ public class StringUtil {
 	 * @param slipStr
 	 * @return String
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "rawtypes" })
 	public static String listToStringSlipStr(List list, String slipStr) {
 		StringBuffer returnStr = new StringBuffer();
 		if (list != null && list.size() > 0) {
@@ -1740,5 +1730,4 @@ public class StringUtil {
 	public static void main(String[] args) {
 
 	}
-
 }

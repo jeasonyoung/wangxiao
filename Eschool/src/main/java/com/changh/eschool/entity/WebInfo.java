@@ -1,13 +1,10 @@
 package com.changh.eschool.entity;
-
 /**
  * TbWebInfo entity. @author MyEclipse Persistence Tools
  */
 
 public class WebInfo implements java.io.Serializable {
-
-	// Fields
-
+	private static final long serialVersionUID = 1L;
 	private Integer webInfoId;
 	private String webInfoComName;
 	private String webInfoComAddress;
@@ -140,5 +137,4 @@ public class WebInfo implements java.io.Serializable {
 	public void setWebInfoWorkday(String webInfoWorkday) {
 		this.webInfoWorkday = webInfoWorkday;
 	}
-
 }

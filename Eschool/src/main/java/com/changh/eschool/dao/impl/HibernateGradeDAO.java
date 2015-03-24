@@ -2,7 +2,6 @@ package com.changh.eschool.dao.impl;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.SQLQuery;
@@ -11,16 +10,14 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.changh.eschool.dao.GradeDAO;
-import com.changh.eschool.entity.ExamCategory;
 import com.changh.eschool.entity.Grade;
 import com.changh.eschool.entity.GradeCategory;
 
-
-
 public class HibernateGradeDAO extends HibernateDaoSupport implements GradeDAO,Serializable {
+	private static final long serialVersionUID = 1L;
 
-	public List<Grade> findGradeByExamPidAndGradeCategory(String gtypeName,
-			int examId) {
+	@SuppressWarnings("unchecked")
+	public List<Grade> findGradeByExamPidAndGradeCategory(String gtypeName,int examId) {
 		Date today = new Date(System.currentTimeMillis());
 		String hql ="select grade from Grade grade where grade.gradeCategory.gtypeName="+"'"+gtypeName+"'"
 			+" and grade.examCategory.examPid="+examId+" and grade.gradeDueTime >'"+today+"'";
@@ -31,10 +28,10 @@ public class HibernateGradeDAO extends HibernateDaoSupport implements GradeDAO,S
 			String hql1 ="select grade from Grade grade where grade.gradeCategory.gtypeName="+"'"+gtypeName+"'"
 					+" and grade.examCategory.examId="+examId+" and grade.gradeDueTime >'"+today+"'";
 			return this.getHibernateTemplate().find(hql1);
-		}
-		
+		}	
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<GradeCategory> findAll() {
 		String hql="from GradeCategory";
 		return this.getHibernateTemplate().find(hql);
@@ -44,6 +41,8 @@ public class HibernateGradeDAO extends HibernateDaoSupport implements GradeDAO,S
 		// TODO Auto-generated method stub
 		return (Grade) this.getHibernateTemplate().get(Grade.class, gradeId);
 	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Grade> findByStuId(final int stuId) throws Exception {
 		// TODO Auto-generated method stub
 		/*List<ExamCategory> list = new ArrayList<ExamCategory>();*/
@@ -90,16 +89,21 @@ public class HibernateGradeDAO extends HibernateDaoSupport implements GradeDAO,S
 		String sql = buf.substring(0, buf.length()-1)+")";
 		return findByCriteria(sql);
 	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Grade> findByCriteria(String criteria)
 	{
 		String hql = "from Grade g "+criteria;
 		return this.getHibernateTemplate().find(hql);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Grade> findByTchId(int tchId) {
 		String hql ="from Grade g where g.teacher.tchId="+tchId;
 		return this.getHibernateTemplate().find(hql);
 	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public String findExamName(final int gradeId) throws Exception {
 		// TODO Auto-generated method stub
 		return  (String)this.getHibernateTemplate().execute(
@@ -117,6 +121,7 @@ public class HibernateGradeDAO extends HibernateDaoSupport implements GradeDAO,S
 			);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Grade> findByIds(String ids) throws Exception {
 		// TODO Auto-generated method stub
@@ -124,6 +129,7 @@ public class HibernateGradeDAO extends HibernateDaoSupport implements GradeDAO,S
 		return this.getHibernateTemplate().find(hql);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List<Grade> findGradeList(final int stuId, int examId) throws Exception {
 		// TODO Auto-generated method stub

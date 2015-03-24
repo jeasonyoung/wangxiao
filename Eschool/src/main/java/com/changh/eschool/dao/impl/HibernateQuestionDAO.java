@@ -12,6 +12,7 @@ import com.changh.eschool.entity.Question;
 
 public class HibernateQuestionDAO extends HibernateDaoSupport implements QuestionDAO {
 	//find by id
+	@SuppressWarnings("unchecked")
 	public Question findById(int questionId) throws Exception {
 		String hql = "from Question q left join fetch q.tbAnswers a join fetch q.student s where q.questionId = ?";
 		Object[] param ={questionId};
@@ -20,6 +21,7 @@ public class HibernateQuestionDAO extends HibernateDaoSupport implements Questio
 		return list.get(0);
 	}
 	//分页
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Question> findPage(final int page,final  int pagesize, final String sortname,
 			final String sortorder) throws Exception {
 		// TODO Auto-generated method stub
@@ -39,6 +41,7 @@ public class HibernateQuestionDAO extends HibernateDaoSupport implements Questio
 			);
 	}
 	//条件搜索，带分页
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Question> searchPage(final int page, final int pagesize,final  String sortname,
 			final String sortorder,final String content) throws Exception {
 		// TODO Auto-generated method stub
@@ -56,8 +59,6 @@ public class HibernateQuestionDAO extends HibernateDaoSupport implements Questio
 					}
 				}
 			);
-		
-		
 	}
 	//保存
 	public void save(Question question) throws Exception {
@@ -65,9 +66,9 @@ public class HibernateQuestionDAO extends HibernateDaoSupport implements Questio
 		this.getHibernateTemplate().save(question);
 	}
 	//find by stuId
+	@SuppressWarnings("unchecked")
 	public List<Question> findByStuId(int stuId) throws Exception {
 		String hql ="from Question q where q.student.stuId = "+stuId;
-		
 		return this.getHibernateTemplate().find(hql);
 	}
 	public long findTotal(String criteria) throws Exception {
@@ -81,6 +82,7 @@ public class HibernateQuestionDAO extends HibernateDaoSupport implements Questio
 		this.getHibernateTemplate().delete(question);
 		return true;
 	}
+	@SuppressWarnings("unchecked")
 	public Question findBy2Id(int questionId, int stuId) throws Exception {
 		// TODO Auto-generated method stub
 		String hql = "from Question q where q.questionId = ? and q.student.stuId = ?";
@@ -89,6 +91,7 @@ public class HibernateQuestionDAO extends HibernateDaoSupport implements Questio
 		if(list.isEmpty()) return null;
 		return list.get(0);
 	}
+	@SuppressWarnings("unchecked")
 	public List<Question> findByClassId(int classId,int type) {
 		if(type==-1){
 			String hql = "select q from Question q where q.classId =  "+classId;
@@ -97,6 +100,5 @@ public class HibernateQuestionDAO extends HibernateDaoSupport implements Questio
 			String hql ="select q from Question q where q.classId ="+classId +" and q.questionStatus="+type;
 			return this.getHibernateTemplate().find(hql);
 		}
-		
 	}
 }

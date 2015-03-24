@@ -2,11 +2,9 @@ package com.changh.eschool.action.member;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.changh.eschool.entity.Lecture;
 import com.changh.eschool.entity.PartArray;
 import com.changh.eschool.service.ClassDetailService;
-
 /**
  * 输出json对象给课堂页面
  * @author Administrator
@@ -33,7 +31,6 @@ public class PartArrayAction {
 			pa.setPartNum(i+1);
 			pa.setTitle(lect.getLectTitle());
 			partArray.add(pa);
-			
 		}
 		return "success";
 	}
@@ -54,6 +51,5 @@ public class PartArrayAction {
 	}
 	public void setClassDetailService(ClassDetailService classDetailService) {
 		this.classDetailService = classDetailService;
-	}
-	
+	}	
 }

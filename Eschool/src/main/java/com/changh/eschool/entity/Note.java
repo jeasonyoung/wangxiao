@@ -1,15 +1,11 @@
 package com.changh.eschool.entity;
 
 import java.util.Date;
-
 /**
  * Note entity. @author MyEclipse Persistence Tools
  */
-
 public class Note implements java.io.Serializable {
-
-	// Fields
-
+	private static final long serialVersionUID = 1L;
 	private Integer noteId;
 	private Integer stuId;
 	private Integer id;
@@ -18,13 +14,9 @@ public class Note implements java.io.Serializable {
 	private String noteContent;
 	private float noteVideotime;
 	private Integer noteCouresType;
-
-	// Constructors
-
 	/** default constructor */
 	public Note() {
 	}
-
 	/** minimal constructor */
 	public Note(Integer noteId,  Integer id, Integer classId,
 			Date noteAddTime, String noteContent) {
@@ -35,7 +27,6 @@ public class Note implements java.io.Serializable {
 		this.noteAddTime = noteAddTime;
 		this.noteContent = noteContent;
 	}
-
 	/** full constructor */
 	public Note(Integer noteId,  Integer id, Integer classId,
 			Date noteAddTime, String noteContent, float noteVideotime,
@@ -48,9 +39,7 @@ public class Note implements java.io.Serializable {
 		this.setNoteVideotime(noteVideotime);
 		this.noteCouresType = noteCouresType;
 	}
-
 	// Property accessors
-
 	public Integer getNoteId() {
 		return this.noteId;
 	}
@@ -115,5 +104,4 @@ public class Note implements java.io.Serializable {
 	public void setNoteVideotime(float noteVideotime) {
 		this.noteVideotime = noteVideotime;
 	}
-
 }

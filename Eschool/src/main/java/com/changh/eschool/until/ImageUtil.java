@@ -7,7 +7,6 @@ import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-
 /**
  * 生成验证码
  * @author Administrator

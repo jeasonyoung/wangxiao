@@ -1,10 +1,8 @@
 package com.changh.eschool.service;
 
 import java.util.List;
-
 import com.changh.eschool.entity.ExamCategory;
 import com.changh.eschool.entity.ExamCategory1;
-
 
 public interface ExamCategoryService {
 
@@ -25,7 +23,4 @@ public interface ExamCategoryService {
 
 	// 2013.07.18 for mobile
 	public List<ExamCategory1> search(String keywords) throws Exception;
-	
-	
-
 }

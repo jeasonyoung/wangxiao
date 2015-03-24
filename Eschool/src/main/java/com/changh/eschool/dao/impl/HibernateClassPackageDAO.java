@@ -21,14 +21,16 @@ import com.changh.eschool.entity.PackageCategory;
 import com.changh.eschool.entity.StuDeal;
 
 public class HibernateClassPackageDAO extends HibernateDaoSupport implements ClassPackageDAO,Serializable{
-
+	private static final long serialVersionUID = 1L;
 	//查找当前考试类别下面的所有套餐
+	@SuppressWarnings("unchecked")
 	public List<ClassPackage> findClassPackage(int examId) {
 		Date today = new Date(System.currentTimeMillis());
 		String hql ="select classPackage from ClassPackage classPackage where classPackage.examId="+examId+" and classPackage.pkgRMatureDate >'"+today+"'";
 		return this.getHibernateTemplate().find(hql);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public int findPackageCategory(String ptypeName,int examId){
 		String hql ="select category.ptypeId from PackageCategory category where category.ptypeName = "+"'"+ptypeName+"'"+" and category.examId="+examId;
 		List list = this.getHibernateTemplate().find(hql);
@@ -38,10 +40,14 @@ public class HibernateClassPackageDAO extends HibernateDaoSupport implements Cla
 			return 0;
 		}
 	}
+	
+	@SuppressWarnings("unchecked")
 	public List<PackageCategory> findPackageId(int ptypePid){
 		String hql="select category from PackageCategory category where category.ptypePid="+ptypePid;
 		return this.getHibernateTemplate().find(hql);
 	}
+	
+	@SuppressWarnings("unchecked")
 	public List<ClassPackage> findPackage(int ptypeId){
 		Date today = new Date(System.currentTimeMillis());
 			String hql="select new ClassPackage(pkgId,pkgName,pkgRPrice,pkgTotalTime) from ClassPackage classPackage where classPackage.pkgRMatureDate >'"+today+"'and classPackage.ptypeId="+ptypeId;
@@ -51,6 +57,7 @@ public class HibernateClassPackageDAO extends HibernateDaoSupport implements Cla
 		// TODO Auto-generated method stub
 		return (ClassPackage) this.getHibernateTemplate().get(ClassPackage.class, pkgId);
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Grade> findByPkgId(int pkgId) {
 		String hql ="select cp.pkgIncludeCid from ClassPackage cp where cp.pkgId="+pkgId;
 		List<String> list = this.getHibernateTemplate().find(hql);
@@ -71,6 +78,7 @@ public class HibernateClassPackageDAO extends HibernateDaoSupport implements Cla
 		String hql ="select category.examId from PackageCategory category where category.ptypeId="+ptypeId;
 		return (Integer) this.getHibernateTemplate().find(hql).get(0);
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public String findExamName(final int pkgId) throws Exception {
 		// TODO Auto-generated method stub
 		return (String)this.getHibernateTemplate().execute(
@@ -110,6 +118,7 @@ public class HibernateClassPackageDAO extends HibernateDaoSupport implements Cla
 		return (StuDeal) this.getHibernateTemplate().find(hql).get(0);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Deal findDealByPkgId(int pkgId) {
 		String hql = "from Deal where dealPkgId ="+pkgId;
 		List list =  this.getHibernateTemplate().find(hql);
@@ -131,6 +140,7 @@ public class HibernateClassPackageDAO extends HibernateDaoSupport implements Cla
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<StuDeal> findStuDealByStuId(final int stuId,final int page,final int pagesize) {
 		return (List<StuDeal>) this.getHibernateTemplate().execute(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws HibernateException,
@@ -145,16 +155,16 @@ public class HibernateClassPackageDAO extends HibernateDaoSupport implements Cla
 		
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public int findStuDealTotal(int stuId){
 		String hql ="select count(*) from StuDeal where stuId ="+stuId;
 		List list = this.getHibernateTemplate().find(hql);
 		return ((Long)list.get(0)).intValue();
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<PackageCategory> findByExamId(int examId) {
 		String hql ="from PackageCategory pc where pc.examId="+examId+" and pc.ptypePid=0";
 		return this.getHibernateTemplate().find(hql);
 	}
-
-
 }

@@ -3,6 +3,7 @@ package com.changh.eschool.entity;
 import java.io.Serializable;
 
 public class CartItem implements Serializable{
+	private static final long serialVersionUID = 1L;
 	//购买的商品
 	private Items item;
 	//是否删除的标识
@@ -18,6 +19,5 @@ public class CartItem implements Serializable{
 	}
 	public void setBuy(boolean buy) {
 		this.buy = buy;
-	}
-	
+	}	
 }

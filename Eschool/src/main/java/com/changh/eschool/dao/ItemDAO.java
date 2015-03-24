@@ -14,11 +14,13 @@ public interface ItemDAO {
 	 * @param examId
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	public List findByExamId(int examId,int itemPType);
 	/**
 	 * 销量前10的所以暴击或者套餐
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	public List findHot();
 	/**
 	 * 按itemId查找所属订单
@@ -26,5 +28,4 @@ public interface ItemDAO {
 	 * @return
 	 */
 	public Order findByItemId(int itemId);
-
 }

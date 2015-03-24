@@ -11,6 +11,8 @@ import com.changh.eschool.dao.AskOrComplainDAO;
 import com.changh.eschool.entity.AskOrComplain;
 
 public class HibernateAskOrComplainDAO extends HibernateDaoSupport implements AskOrComplainDAO{
+	
+	@SuppressWarnings("unchecked")
 	public AskOrComplain findById(int acId) throws Exception {
 		// TODO Auto-generated method stub
 		String hql ="from AskOrComplain ac left join fetch ac.tbReplies  r where ac.acId = ?";
@@ -19,6 +21,8 @@ public class HibernateAskOrComplainDAO extends HibernateDaoSupport implements As
 		if(list.isEmpty()) return null;
 		return list.get(0);
 	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<AskOrComplain> findPageByCriteria(final int page,final  int pagesize,
 			final String sortname,final  String sortorder, final String criteria)
 			throws Exception {
@@ -38,6 +42,7 @@ public class HibernateAskOrComplainDAO extends HibernateDaoSupport implements As
 				}
 			);
 	}
+	@SuppressWarnings("unchecked")
 	public long findTotal(String criteria) throws Exception {
 		// TODO Auto-generated method stub
 		String hql = "select count(*) from AskOrComplain ac "+criteria;
@@ -50,6 +55,5 @@ public class HibernateAskOrComplainDAO extends HibernateDaoSupport implements As
 	}
 	public void update(AskOrComplain ac) throws Exception {
 		this.getHibernateTemplate().update(ac);
-	};
-		
+	};		
 }

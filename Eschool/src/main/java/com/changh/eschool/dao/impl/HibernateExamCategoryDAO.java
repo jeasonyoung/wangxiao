@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.hibernate.Hibernate;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateCallback;
@@ -15,15 +14,15 @@ import com.changh.eschool.dao.ExamCategoryDAO;
 import com.changh.eschool.entity.ExamCategory;
 import com.changh.eschool.entity.ExamCategory1;
 
-
-
 public class HibernateExamCategoryDAO  extends HibernateDaoSupport implements ExamCategoryDAO {
+	@SuppressWarnings("unchecked")
 	public List<ExamCategory1> findAll1() throws Exception {
 		String hql ="from ExamCategory1";
 		return this.getHibernateTemplate().find(hql);
 		
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	public List<ExamCategory1> findByPid1(int pid) throws Exception {
 		String hql="from ExamCategory1 c where c.examPid=?";
 		Object[] params ={pid};
@@ -31,6 +30,7 @@ public class HibernateExamCategoryDAO  extends HibernateDaoSupport implements Ex
 	}
 	
 	/////////////////////////////////////////////////////////////////
+	@SuppressWarnings("unchecked")
 	public List<ExamCategory> findAll() throws Exception {
 		String hql="select distinct c from ExamCategory c left join fetch c.children " +
 				" sc where c.examPid=0 order by c.examOrderId";
@@ -42,6 +42,7 @@ public class HibernateExamCategoryDAO  extends HibernateDaoSupport implements Ex
 		return (ExamCategory) this.getHibernateTemplate().get(ExamCategory.class, examId);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void update(int id,String examName) throws Exception {
 		String hql ="select ec from ExamCategory ec where ec.id="+id;
 		List list =this.getHibernateTemplate().find(hql);
@@ -60,6 +61,7 @@ public class HibernateExamCategoryDAO  extends HibernateDaoSupport implements Ex
 		this.getHibernateTemplate().save(exam);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public int fingByPid(int examPid) throws Exception {
 		String hql ="select count(*) from ExamCategory ec where ec.examPid="+examPid;
 		List list=this.getHibernateTemplate().find(hql);
@@ -68,8 +70,8 @@ public class HibernateExamCategoryDAO  extends HibernateDaoSupport implements Ex
 		return  count.intValue();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void delete(int examPid,int id) throws Exception {
-		
 		String hql ="select ec from ExamCategory ec where ec.examId="+examPid;
 		List list =this.getHibernateTemplate().find(hql);
 		ExamCategory ec = (ExamCategory) list.get(0);
@@ -92,6 +94,7 @@ public class HibernateExamCategoryDAO  extends HibernateDaoSupport implements Ex
 		this.getHibernateTemplate().delete(ec1);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unused" })
 	public ExamCategory findByIdExamAdd(int id) throws Exception {
 		String hql ="select ec from ExamCategory ec where ec.id="+id;
 		List list =this.getHibernateTemplate().find(hql);
@@ -105,6 +108,7 @@ public class HibernateExamCategoryDAO  extends HibernateDaoSupport implements Ex
 		return ec1;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<ExamCategory> findByExamPid(int examPid) {
 		String hql ="select ec from ExamCategory ec where ec.examPid = "+examPid;
 		List<ExamCategory> list =this.getHibernateTemplate().find(hql);
@@ -121,6 +125,7 @@ public class HibernateExamCategoryDAO  extends HibernateDaoSupport implements Ex
 		}
 		return false;
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<ExamCategory> findByStuId(final int stuId) throws Exception
 	{
 		Set<ExamCategory> list = new HashSet<ExamCategory>();
@@ -172,12 +177,12 @@ public class HibernateExamCategoryDAO  extends HibernateDaoSupport implements Ex
 	}
 	
 	// 2013.07.18 for mobile
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<ExamCategory1> search(String keywords) throws Exception {
 		// TODO Auto-generated method stub
 		//String hql = "select distinct c from ExamCategory  c left join fetch c.children where c.examName like '%"+keywords.replaceAll("%", "\\%")+"%'";
 		String hql = "from ExamCategory1 where examName like '%"+keywords.replaceAll("%", "\\%")+"%'";
 		return this.getHibernateTemplate().find(hql);
-	}
-	
+	}	
 }

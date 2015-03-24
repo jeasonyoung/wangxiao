@@ -13,6 +13,7 @@ public class HibernateStudyRecordDAO extends HibernateDaoSupport implements Stud
 		this.getHibernateTemplate().saveOrUpdate(studyRecord);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public int findSRecordId(int stuId,int classId) {
 		String hql1 ="select sr.recordId from StudyRecord sr where sr.stuId="+stuId+" and sr.classId ="+classId;
 		List list =this.getHibernateTemplate().find(hql1);
@@ -29,6 +30,7 @@ public class HibernateStudyRecordDAO extends HibernateDaoSupport implements Stud
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<StudyRecord> findByStuId(int stuId) {
 		String hql ="select sr from StudyRecord sr where sr.stuId="+stuId +"order by sr.recordStartTime desc";
 		return this.getHibernateTemplate().find(hql);
@@ -38,6 +40,7 @@ public class HibernateStudyRecordDAO extends HibernateDaoSupport implements Stud
 		this.getHibernateTemplate().deleteAll(findByStuId(stuId));
 	}
 
+	@SuppressWarnings("unchecked")
 	public StudyRecord findByGradeId(int gradeId,int stuId) {
 		String hql ="select sr from StudyRecord sr where sr.gradeId=? and sr.stuId=?";
 		Object[] params = {gradeId,stuId};
@@ -49,6 +52,7 @@ public class HibernateStudyRecordDAO extends HibernateDaoSupport implements Stud
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public StudyRecord findSRecord(int stuId, int classId) {
 		String hql1 ="from StudyRecord sr where sr.stuId="+stuId+" and sr.classId ="+classId;

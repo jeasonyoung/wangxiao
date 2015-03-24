@@ -10,6 +10,7 @@ import org.hibernate.engine.SessionFactoryImplementor;
 import org.hibernate.type.Type;
 
 public class BitAndFunction implements SQLFunction {
+	@SuppressWarnings("deprecation")
 	public Type getReturnType(Type type, Mapping mapping) {
 		return Hibernate.INTEGER;
 	}
@@ -17,11 +18,12 @@ public class BitAndFunction implements SQLFunction {
 	public boolean hasArguments() {
 		return true;
 	}
-
+	
 	public boolean hasParenthesesIfNoArguments() {
 		return true;
 	}
-
+	
+	@SuppressWarnings("rawtypes")
 	public String render(List args, SessionFactoryImplementor factory)
 			throws QueryException {
 		if (args.size() != 2) {
@@ -30,7 +32,8 @@ public class BitAndFunction implements SQLFunction {
 		}
 		return args.get(0).toString() + " & " + args.get(1).toString();
 	}
-
+	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public String render(Type firstArgumentType, List arguments, SessionFactoryImplementor factory) throws QueryException {
 		if (arguments.size() != 2) {

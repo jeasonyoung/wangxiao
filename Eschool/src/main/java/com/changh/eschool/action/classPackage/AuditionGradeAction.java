@@ -1,12 +1,9 @@
 package com.changh.eschool.action.classPackage;
 
 import java.util.List;
-
 import com.changh.eschool.action.BaseAction;
 import com.changh.eschool.entity.ClassDetail;
 import com.changh.eschool.entity.Grade;
-import com.changh.eschool.entity.MyLesson;
-import com.changh.eschool.entity.Student;
 import com.changh.eschool.service.ClassDetailService;
 import com.changh.eschool.service.ExamCategoryService;
 import com.changh.eschool.service.GradeService;
@@ -135,5 +132,4 @@ public class AuditionGradeAction extends BaseAction{
 	public void setExamName(String examName) {
 		this.examName = examName;
 	}
-
 }

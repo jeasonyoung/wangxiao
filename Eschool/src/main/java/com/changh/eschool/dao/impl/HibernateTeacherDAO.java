@@ -8,7 +8,6 @@ import com.changh.eschool.dao.TeacherDAO;
 import com.changh.eschool.entity.Teacher;
 
 public class HibernateTeacherDAO extends HibernateDaoSupport implements TeacherDAO {
-	
 	//
 	public void delete(int id) throws Exception {
 		// TODO Auto-generated method stub
@@ -16,11 +15,10 @@ public class HibernateTeacherDAO extends HibernateDaoSupport implements TeacherD
 		
 	}
 	//查询所有的老师
+	@SuppressWarnings("unchecked")
 	public List<Teacher> findAll() throws Exception {
-		List<Teacher> list = null;
 		String hql ="from Teacher";
-		list=this.getHibernateTemplate().find(hql);
-		return list;
+		return this.getHibernateTemplate().find(hql);
 	}
 	
 	public Teacher findById(int id) throws Exception {
@@ -29,6 +27,7 @@ public class HibernateTeacherDAO extends HibernateDaoSupport implements TeacherD
 		return tch;
 	}
 
+	@SuppressWarnings({ "rawtypes" })
 	public Teacher findByUsername(String username) throws Exception {
 		// TODO Auto-generated method stub
 		String hql = "from Teacher where tchUsername=?";
@@ -41,6 +40,7 @@ public class HibernateTeacherDAO extends HibernateDaoSupport implements TeacherD
 		return (Teacher)list.get(0);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Teacher> findByName(String name) throws Exception {
 		// TODO Auto-generated method stub
 		String hql = "from Teacher where tchName=?";
@@ -60,6 +60,8 @@ public class HibernateTeacherDAO extends HibernateDaoSupport implements TeacherD
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().save(teacher);
 	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Teacher> search(String str, String searchName) throws Exception {
 		String hql="from Teacher where "+searchName+"like ?";
 		Object[] params=new Object[1];
@@ -71,9 +73,9 @@ public class HibernateTeacherDAO extends HibernateDaoSupport implements TeacherD
 		{
 			params[0]="'%"+str+"%'";
 		}
-		List list=this.getHibernateTemplate().find(hql, params);
-		return list;
+		return this.getHibernateTemplate().find(hql, params);
 	}
+	
 	public Teacher findBytchId(int tchId) {
 		String hql ="from Teacher t where t.tchId="+tchId;
 		return (Teacher) this.getHibernateTemplate().find(hql).get(0);

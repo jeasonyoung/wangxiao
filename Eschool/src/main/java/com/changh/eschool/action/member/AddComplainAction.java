@@ -36,6 +36,5 @@ public class AddComplainAction extends BaseAction{
 		askOrComplainService.save(ac); 
 		ok=true;
 		return "success";
-	}
-	
-}	
+	}	
+}

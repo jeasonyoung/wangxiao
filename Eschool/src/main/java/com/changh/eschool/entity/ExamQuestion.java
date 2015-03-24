@@ -1,21 +1,12 @@
 package com.changh.eschool.entity;
-// default package
-
 import java.util.Date;
-
 import com.changh.eschool.until.Constant;
-
-
 /**
  * ExamQuestion entity. @author MyEclipse Persistence Tools
  */
-
 public class ExamQuestion  implements java.io.Serializable {
-
-
-    // Fields    
-
-     private Integer questId;
+	private static final long serialVersionUID = 1L;
+	private Integer questId;
      private Integer id;
      private Integer questRuleId;
      private Integer questPaperId;
@@ -66,10 +57,8 @@ public class ExamQuestion  implements java.io.Serializable {
         this.questErrorNum = questErrorNum;
         this.questMd5code = questMd5code;
     }
-
-   
+    
     // Property accessors
-
     public Integer getQuestId() {
         return this.questId;
     }
@@ -314,5 +303,4 @@ public class ExamQuestion  implements java.io.Serializable {
 	public void setUserScore(double userScore) {
 		this.userScore = userScore;
 	}
-	
 }

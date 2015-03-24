@@ -1,9 +1,7 @@
 package com.changh.eschool.service;
 
 import java.util.List;
-
 import com.changh.eschool.entity.StudyRecord;
-
 public interface StudyRecordService {
 	/**
 	 *	保存播放记录

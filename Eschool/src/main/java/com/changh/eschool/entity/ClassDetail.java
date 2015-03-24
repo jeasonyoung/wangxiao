@@ -2,15 +2,11 @@ package com.changh.eschool.entity;
 
 import java.util.Date;
 import java.util.List;
-
 /**
  * ClassDetail entity. @author MyEclipse Persistence Tools
  */
-
 public class ClassDetail implements java.io.Serializable {
-
-	// Fields
-
+	private static final long serialVersionUID = 1L;
 	private Integer classId;
 	//private Grade grade;
 	private Integer gradeId;
@@ -27,7 +23,6 @@ public class ClassDetail implements java.io.Serializable {
 	private String classAudio;
 	private Integer classTime;
 	private Integer tchId;
-
 	
 	//方便数据传送
 	private int classMin;
@@ -36,7 +31,6 @@ public class ClassDetail implements java.io.Serializable {
 	/** default constructor */
 	public ClassDetail() {
 	}
-
 	/** minimal constructor */
 	public ClassDetail(Integer classId, Integer gradeId, Integer id,
 			String classTitle, Integer classOrderId, Integer classYear,
@@ -58,7 +52,7 @@ public class ClassDetail implements java.io.Serializable {
 		this.classAudio = classAudio;
 		this.classTime = classTime;
 	}
-
+	
 	/** full constructor */
 	public ClassDetail(Integer classId, Integer gradeId, Integer id,
 			String classTitle, Integer classOrderId, Integer classYear,
@@ -82,7 +76,6 @@ public class ClassDetail implements java.io.Serializable {
 		this.classTime = classTime;
 		//this.lectures = lectures;
 	}
-
 	// Property accessors
 
 	public Integer getClassId() {

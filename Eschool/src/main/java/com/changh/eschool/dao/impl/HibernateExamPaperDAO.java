@@ -11,12 +11,10 @@ import com.changh.eschool.dao.ExamPaperDAO;
 import com.changh.eschool.entity.ExamPaper;
 import com.changh.eschool.until.Arith;
 
-public class HibernateExamPaperDAO extends HibernateDaoSupport implements
-		ExamPaperDAO {
+public class HibernateExamPaperDAO extends HibernateDaoSupport implements ExamPaperDAO {
 	public ExamPaper findById(int paperId) throws Exception {
 		// TODO Auto-generated method stub
-		return (ExamPaper) this.getHibernateTemplate().get(ExamPaper.class,
-				paperId);
+		return (ExamPaper) this.getHibernateTemplate().get(ExamPaper.class,paperId);
 	}
 
 	public void update(ExamPaper paper) throws Exception {
@@ -29,6 +27,7 @@ public class HibernateExamPaperDAO extends HibernateDaoSupport implements
 		paper.setPaperScore((int) Arith.sub(paper.getPaperScore(), score));
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<ExamPaper> findPageByGradeId(final int gradeId, final int page,
 			final int pagesize, final String sortname, final String sortorder)
 			throws Exception {
@@ -47,6 +46,7 @@ public class HibernateExamPaperDAO extends HibernateDaoSupport implements
 					}
 				});
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<ExamPaper> findPageByContent(final String content, final int page,
 			final int pagesize, final String sortname, final String sortorder)
 					throws Exception {
@@ -76,6 +76,7 @@ public class HibernateExamPaperDAO extends HibernateDaoSupport implements
 		return (Long) this.getHibernateTemplate().find(hql, params).get(0);
 	}
 
+	@SuppressWarnings("unchecked")
 	public ExamPaper findByName(String paperName) throws Exception {
 		String hql = "from ExamPaper where paperName = ?";
 		Object[] params = { paperName };

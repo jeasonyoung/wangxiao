@@ -53,6 +53,7 @@ public class HibernateItemDAOImpl extends HibernateDaoSupport implements ItemDAO
 		}
 		return buf.length()==0?null:buf.substring(0, buf.length()-1);
 	}
+	@SuppressWarnings("unchecked")
 	public List<Items> findByOrderId(int orderId) throws Exception {
 		// TODO Auto-generated method stub
 		String hql ="select item from Items item where item.orderId = ?";
@@ -60,6 +61,7 @@ public class HibernateItemDAOImpl extends HibernateDaoSupport implements ItemDAO
 		return this.getHibernateTemplate().find(hql, param);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List findByExamId(final int examId,final int itemPType) {
 		return (List)this.getHibernateTemplate().execute(
 					new HibernateCallback() {
@@ -91,6 +93,7 @@ public class HibernateItemDAOImpl extends HibernateDaoSupport implements ItemDAO
 				);
 		
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List findHot( ) {
 		return (List)this.getHibernateTemplate().execute(
 				new HibernateCallback() {
@@ -107,6 +110,7 @@ public class HibernateItemDAOImpl extends HibernateDaoSupport implements ItemDAO
 	
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Question> findPage(final int page,final  int pagesize, final String sortname,
 			final String sortorder) throws Exception {
 		// TODO Auto-generated method stub

@@ -12,6 +12,7 @@ import com.changh.eschool.entity.Comment;
 
 public class HibernateCommentDAO extends HibernateDaoSupport implements CommentDAO{
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Comment> findByTchId(final int tchId, final int page, final int pagesize,
 			final String sortname, final String sortorder) {
 			return (List)this.getHibernateTemplate().execute(
@@ -37,6 +38,7 @@ public class HibernateCommentDAO extends HibernateDaoSupport implements CommentD
 		return count.intValue();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public int findSorce(int tchId) {
 		String hql = "select avg(c.commentScore) from Comment c where c.tchId="+tchId;
 		List list = this.getHibernateTemplate().find(hql);
@@ -60,6 +62,5 @@ public class HibernateCommentDAO extends HibernateDaoSupport implements CommentD
 		}else{
 			return id+1;
 		}
-	}
-	
+	}	
 }

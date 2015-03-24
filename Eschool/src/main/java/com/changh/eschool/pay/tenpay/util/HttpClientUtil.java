@@ -25,7 +25,6 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
-
 /**
  * Http客户端工具类<br/>
  * 这是内部调用类，请不要在外部调用。
@@ -112,6 +111,7 @@ public class HttpClientUtil {
 	 * @param queryString
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	public static Map queryString2Map(String queryString) {
 		if(null == queryString || "".equals(queryString)) {
 			return null;
@@ -125,7 +125,6 @@ public class HttpClientUtil {
 		}
 		
 		return m;
-		
 	}
 	
 	/**
@@ -134,12 +133,11 @@ public class HttpClientUtil {
 	 * @param pair name=value
 	 * @param m
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void putMapByPair(String pair, Map m) {
-		
 		if(null == pair || "".equals(pair)) {
 			return;
 		}
-		
 		int indexOf = pair.indexOf("=");
 		if(-1 != indexOf) {
 			String k = pair.substring(0, indexOf);
@@ -178,8 +176,7 @@ public class HttpClientUtil {
 	 * @param len
 	 * @throws IOException
 	 */
-	public static void doOutput(OutputStream out, byte[] data, int len) 
-			throws IOException {
+	public static void doOutput(OutputStream out, byte[] data, int len) throws IOException {
 		int dataLen = data.length;
 		int off = 0;
 		while(off < dataLen) {
@@ -295,5 +292,4 @@ public class HttpClientUtil {
 	public static InputStream String2Inputstream(String str) {
 		return new ByteArrayInputStream(str.getBytes());
 	}
-
 }

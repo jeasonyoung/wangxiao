@@ -30,6 +30,7 @@ public class RequestHandler {
 	private String key;
 	
 	/** 请求的参数 */
+	@SuppressWarnings("rawtypes")
 	private SortedMap parameters;
 	
 	/** debug信息 */
@@ -44,6 +45,7 @@ public class RequestHandler {
 	 * @param request
 	 * @param response
 	 */
+	@SuppressWarnings("rawtypes")
 	public RequestHandler(HttpServletRequest request, HttpServletResponse response) {
 		this.request = request;
 		this.response = response;
@@ -104,6 +106,7 @@ public class RequestHandler {
 	 * @param parameter 参数名称
 	 * @param parameterValue 参数值
 	 */
+	@SuppressWarnings("unchecked")
 	public void setParameter(String parameter, String parameterValue) {
 		String v = "";
 		if(null != parameterValue) {
@@ -116,6 +119,7 @@ public class RequestHandler {
 	 * 返回所有的参数
 	 * @return SortedMap
 	 */
+	@SuppressWarnings("rawtypes")
 	public SortedMap getAllParameters() {		
 		return this.parameters;
 	}
@@ -132,10 +136,9 @@ public class RequestHandler {
 	 * @return String
 	 * @throws UnsupportedEncodingException 
 	 */
+	@SuppressWarnings("rawtypes")
 	public String getRequestURL() throws UnsupportedEncodingException {
-		
 		this.createSign();
-		
 		StringBuffer sb = new StringBuffer();
 		String enc = TenpayUtil.getCharacterEncoding(this.request, this.response);
 		Set es = this.parameters.entrySet();
@@ -161,6 +164,7 @@ public class RequestHandler {
 	/**
 	 * 创建md5摘要,规则是:按参数名称a-z排序,遇到空值的参数不参加签名。
 	 */
+	@SuppressWarnings("rawtypes")
 	protected void createSign() {
 		StringBuffer sb = new StringBuffer();
 		Set es = this.parameters.entrySet();
@@ -183,7 +187,6 @@ public class RequestHandler {
 		
 		//debug信息
 		this.setDebugInfo(sb.toString() + " => sign:" + sign);
-		
 	}
 	
 	/**
@@ -200,5 +203,4 @@ public class RequestHandler {
 	protected HttpServletResponse getHttpServletResponse() {
 		return this.response;
 	}
-	 
 }

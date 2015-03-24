@@ -209,5 +209,4 @@ public class AuditionAction extends BaseAction {
 	public void setPkgName(String pkgName) {
 		this.pkgName = pkgName;
 	}
-
 }

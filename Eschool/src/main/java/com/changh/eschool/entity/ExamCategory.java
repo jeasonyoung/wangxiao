@@ -1,20 +1,13 @@
 package com.changh.eschool.entity;
-// default package
 
 import java.util.Date;
 import java.util.List;
-
-
 /**
  * ExamCategory entity. @author MyEclipse Persistence Tools
  */
-
 public class ExamCategory  implements java.io.Serializable {
-
-
-    // Fields    
-
-     private Integer examId;
+	private static final long serialVersionUID = 1L;
+	private Integer examId;
      private Integer id;
      private String examName;
      private Integer examPid;
@@ -49,8 +42,6 @@ public class ExamCategory  implements java.io.Serializable {
      private  String isexpand;
 
     // Constructors
-
-
 	public void setPid(Integer pid) {
 		this.pid = pid;
 	}
@@ -79,11 +70,7 @@ public class ExamCategory  implements java.io.Serializable {
         this.examChildrenNum = examChildrenNum;
         this.examAddTime = examAddTime;
         this.examOrderId = examOrderId;
-   
-   
     }
-
-   
     // Property accessors
 
     public Integer getExamId() {
@@ -160,9 +147,6 @@ public class ExamCategory  implements java.io.Serializable {
 	public void setText(String text) {
 		this.text = text;
 	}
-
-	
-
 	public String getIsexpand() {
 		return isexpand;
 	}
@@ -195,9 +179,6 @@ public class ExamCategory  implements java.io.Serializable {
 			return false;
 		return true;
 	}
-
-	
-
 	/*public Set<ExamCategory> getChildren() {
 		return children;
 	}

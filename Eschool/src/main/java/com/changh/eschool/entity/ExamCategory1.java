@@ -1,21 +1,19 @@
 package com.changh.eschool.entity;
-// default package
 
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-
 
 /**
  * ExamCategory entity. @author MyEclipse Persistence Tools
  */
 
 public class ExamCategory1  implements java.io.Serializable {
-
-
-    // Fields    
-
-     private Integer examId;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer examId;
      private Integer id;
      private String examName;
      private Integer examPid;
@@ -28,7 +26,6 @@ public class ExamCategory1  implements java.io.Serializable {
      //为了tree的显示
      private String text;
      //private Integer pid;
-
     // Constructors
 
     /** default constructor */
@@ -143,13 +140,4 @@ public class ExamCategory1  implements java.io.Serializable {
 //    public void setTbGrades(Set tbGrades) {
 //        this.tbGrades = tbGrades;
 //    }
-   
-    
-
-
-
-
-
-
-
 }

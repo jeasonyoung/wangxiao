@@ -1,23 +1,15 @@
 package com.changh.eschool.entity;
 
-
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
-
-
 /**
  * Teacher entity provides the base persistence definition of the Teacher entity. @author MyEclipse Persistence Tools
  */
 @MappedSuperclass
-
 public class Teacher  implements java.io.Serializable {
-
-
-    // Fields 字段
-
-     private Integer tchId;
+	private static final long serialVersionUID = 1L;
+	private Integer tchId;
      private Integer id;
      private String tchUsername;
      private String tchPassword;
@@ -32,13 +24,10 @@ public class Teacher  implements java.io.Serializable {
      private Integer tchStatus;
      private String tchSex;
      private String status;
-    // Constructors构造方法
-
-
-	/** default constructor */
+     
     public Teacher() {
     }
-
+    
 	/** minimal constructor */
     public Teacher(Integer tchId, String tchUsername, String tchPassword, String tchName, Date tchAddTime, Integer tchStatus) {
         this.tchId = tchId;
@@ -77,12 +66,11 @@ public class Teacher  implements java.io.Serializable {
         this.tchImgUrl = tchImgUrl;
         this.tchStatus = tchStatus;
     }
-  
+    
     // Property accessors
 //    @Id @GeneratedValue(strategy=ASSIGNED)
     
     @Column(name="tch_id", unique=true, nullable=false)
-
     public Integer getTchId() {
         return this.tchId;
     }
@@ -92,7 +80,6 @@ public class Teacher  implements java.io.Serializable {
     }
     
     @Column(name="id", nullable=false)
-
     public Integer getId() {
         return this.id;
     }
@@ -102,7 +89,6 @@ public class Teacher  implements java.io.Serializable {
     }
     
     @Column(name="tch_username", unique=true, nullable=false, length=20)
-
     public String getTchUsername() {
         return this.tchUsername;
     }
@@ -112,7 +98,6 @@ public class Teacher  implements java.io.Serializable {
     }
     
     @Column(name="tch_password", nullable=false, length=50)
-
     public String getTchPassword() {
         return this.tchPassword;
     }
@@ -122,7 +107,6 @@ public class Teacher  implements java.io.Serializable {
     }
     
     @Column(name="tch_name", nullable=false, length=20)
-
     public String getTchName() {
         return this.tchName;
     }
@@ -132,7 +116,6 @@ public class Teacher  implements java.io.Serializable {
     }
     
     @Column(name="tch_phone", length=20)
-
     public String getTchPhone() {
         return this.tchPhone;
     }
@@ -142,7 +125,6 @@ public class Teacher  implements java.io.Serializable {
     }
     
     @Column(name="tch_addTime", nullable=false, length=23)
-
     public Date getTchAddTime() {
         return this.tchAddTime;
     }
@@ -152,7 +134,6 @@ public class Teacher  implements java.io.Serializable {
     }
     
     @Column(name="tch_description", length=1000)
-
     public String getTchDescription() {
         return this.tchDescription;
     }
@@ -162,7 +143,6 @@ public class Teacher  implements java.io.Serializable {
     }
     
     @Column(name="tch_lessons", length=100)
-
     public String getTchLessons() {
         return this.tchLessons;
     }
@@ -172,7 +152,6 @@ public class Teacher  implements java.io.Serializable {
     }
     
     @Column(name="tch_valuation", length=200)
-
     public String getTchValuation() {
         return this.tchValuation;
     }
@@ -182,7 +161,6 @@ public class Teacher  implements java.io.Serializable {
     }
     
     @Column(name="tch_score")
-
     public Integer getTchScore() {
         return this.tchScore;
     }
@@ -192,7 +170,6 @@ public class Teacher  implements java.io.Serializable {
     }
     
     @Column(name="tch_imgURL", length=100)
-
     public String getTchImgUrl() {
         return this.tchImgUrl;
     }
@@ -202,7 +179,6 @@ public class Teacher  implements java.io.Serializable {
     }
     
     @Column(name="tch_status", nullable=false)
-
     public Integer getTchStatus() {
         return this.tchStatus;
     }
@@ -225,13 +201,4 @@ public class Teacher  implements java.io.Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
-
-
-
-
-
-
-
-
 }

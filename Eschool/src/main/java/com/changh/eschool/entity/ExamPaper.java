@@ -7,16 +7,13 @@ import java.util.List;
 
 import com.changh.eschool.until.Constant;
 import com.changh.eschool.until.Escape;
-
-
 /**
  * ExamPaper entity. @author MyEclipse Persistence Tools
  */
 
 public class ExamPaper  implements java.io.Serializable {
-
-
-    // Fields    
+	private static final long serialVersionUID = 1L;
+	// Fields    
      private Integer paperId;
      private Integer id;
      private Integer paperExamId;
@@ -31,7 +28,8 @@ public class ExamPaper  implements java.io.Serializable {
      private Integer paperIsChecked;
      private String paperEditor;
      private String encodeId;	//加密后的id
-     private List<ExamRule> examRules = new ArrayList();
+     @SuppressWarnings("unchecked")
+	private List<ExamRule> examRules = new ArrayList();
      private String type;
      private String paperLinkName;
     // Constructors
@@ -51,7 +49,8 @@ public class ExamPaper  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public ExamPaper(Integer id, Integer paperExamId, Integer paperEGradeId, Integer paperEGCheaterId, String paperName, Integer paperTime, Integer paperScore, Date paperAddTime, Integer paperType, Integer paperClickNum, Integer paperIsChecked, String paperEditor, List examRules) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public ExamPaper(Integer id, Integer paperExamId, Integer paperEGradeId, Integer paperEGCheaterId, String paperName, Integer paperTime, Integer paperScore, Date paperAddTime, Integer paperType, Integer paperClickNum, Integer paperIsChecked, String paperEditor, List examRules) {
         this.id = id;
         this.paperExamId = paperExamId;
         this.paperEGradeId = paperEGradeId;
@@ -197,14 +196,4 @@ public class ExamPaper  implements java.io.Serializable {
 	public String getEncodeId() {
 		return Escape.escapeId(paperId);
 	}
-
-   
-    
-
-
-
-
-
-
-
 }

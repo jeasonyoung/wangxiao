@@ -1,7 +1,6 @@
 package com.changh.eschool.action.course;
 
 import com.changh.eschool.action.BaseAction;
-import com.changh.eschool.entity.Student;
 import com.changh.eschool.service.OrderService;
 
 public class AddToCartAction extends BaseAction{
@@ -11,7 +10,7 @@ public class AddToCartAction extends BaseAction{
 	private  OrderService orderService;
 	
 	public String execute(){
-		Student stu = (Student) session.get("student");
+		//Student stu = (Student) session.get("student");
 		return "success";
 	}
 	public int getProductId() {
@@ -37,6 +36,5 @@ public class AddToCartAction extends BaseAction{
 	}
 	public void setOrderId(int orderId) {
 		this.orderId = orderId;
-	}
-	
+	}	
 }

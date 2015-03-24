@@ -19,6 +19,7 @@ public class HibernateClassDetailDAO extends HibernateDaoSupport implements
 		ClassDetailDAO {
 
 	// 分页
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<ClassDetail> findByGid(final int gid, final int page,
 			final int pagesize) {
 		// TODO Auto-generated method stub
@@ -59,6 +60,7 @@ public class HibernateClassDetailDAO extends HibernateDaoSupport implements
 		return total.intValue();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Grade findById(int gradeId) {
 		String hql = "select grade from Grade grade where grade.gradeId="
 				+ gradeId;
@@ -75,6 +77,7 @@ public class HibernateClassDetailDAO extends HibernateDaoSupport implements
 		this.getHibernateTemplate().save(classDetail);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void delete(int classId) {
 		String hql = "select lect from Lecture lect where lect.classId="
 				+ classId;
@@ -95,6 +98,7 @@ public class HibernateClassDetailDAO extends HibernateDaoSupport implements
 		return (ClassDetail) this.getHibernateTemplate().find(hql).get(0);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void update(ClassDetail classDetail) {
 		String hql = "select cd from ClassDetail cd where cd.classId="
 				+ classDetail.getClassId();
@@ -109,18 +113,19 @@ public class HibernateClassDetailDAO extends HibernateDaoSupport implements
 		c.setClassTitle(classDetail.getClassTitle());
 		c.setClassTriUrl(classDetail.getClassTriUrl());
 		this.getHibernateTemplate().update(c);
-
 	}
 
 	/**
 	 * 查找当前课节下面的所以讲义
 	 */
+	@SuppressWarnings("unchecked")
 	public List<Lecture> findLectureByClassId(int classId) {
 		String hql = "select lect from Lecture lect where lect.classId ="
 				+ classId;
 		return this.getHibernateTemplate().find(hql);
 	}
 
+	@SuppressWarnings("unchecked")
 	public Grade findGradeByClassId(int classId) {
 		// TODO Auto-generated method stub
 		String hql = "select c from ClassDetail c where c.classId=" + classId;
@@ -154,6 +159,7 @@ public class HibernateClassDetailDAO extends HibernateDaoSupport implements
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Note> findMyNote(int classId, int stuId, int type) {
 		String hql = "select note from Note note where note.classId=" + classId
 				+ " and note.stuId=" + stuId + " and note.noteCouresType="
@@ -168,6 +174,7 @@ public class HibernateClassDetailDAO extends HibernateDaoSupport implements
 				this.getHibernateTemplate().find(hql).get(0));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<ClassDetail> findClassDetailByGid(int gid, int status) {
 		String hql = "from ClassDetail cd where cd.gradeId=? and cd.classIfFree=?";
@@ -185,6 +192,7 @@ public class HibernateClassDetailDAO extends HibernateDaoSupport implements
 		return grade;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<ClassDetail> findFreeClassByGid(int gid) throws Exception {
 		// TODO Auto-generated method stub

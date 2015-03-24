@@ -3,7 +3,6 @@ package com.changh.eschool.action.mobile;
 import java.util.List;
 
 import com.changh.eschool.entity.Grade;
-import com.changh.eschool.entity.Student;
 import com.changh.eschool.service.GradeService;
 
 public class GetGradeAction {
@@ -18,8 +17,6 @@ public class GetGradeAction {
 		this.gradeService = gradeService;
 	}
 	
-	
-
 	public int getStuid() {
 		return stuid;
 	}

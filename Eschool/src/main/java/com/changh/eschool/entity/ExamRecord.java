@@ -1,15 +1,11 @@
 package com.changh.eschool.entity;
 
 import java.util.Date;
-
 /**
  * TbExamRecord entity. @author MyEclipse Persistence Tools
  */
-
 public class ExamRecord implements java.io.Serializable {
-
-	// Fields
-
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private Integer paperId;
 	private String paperName;
@@ -27,16 +23,13 @@ public class ExamRecord implements java.io.Serializable {
 	private String rcdTempAnswer;
 	private Integer rcdTestNum;
 	// Constructors
-
 	/** default constructor */
 	public ExamRecord() {
 	}
-
 	/** minimal constructor */
 	public ExamRecord(Integer id) {
 		this.id = id;
 	}
-
 	/** full constructor */
 	public ExamRecord(Integer id, Integer paperId, String paperName,
 			Integer stuId, Integer rcdStauts, double rcdScore,
@@ -51,9 +44,7 @@ public class ExamRecord implements java.io.Serializable {
 		this.rcdEndTime = rcdEndTime;
 		this.rcdAnswers = rcdAnswers;
 	}
-
 	// Property accessors
-
 	public Integer getId() {
 		return this.id;
 	}

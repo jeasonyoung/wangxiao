@@ -7,8 +7,6 @@ import com.changh.eschool.entity.ExamCategory;
 import com.changh.eschool.entity.ExamCategory1;
 import com.changh.eschool.service.ExamCategoryService;
 
-
-
 public class ExamCategoryServiceImpl implements ExamCategoryService {
 	
 	private ExamCategory examCategory = new ExamCategory();

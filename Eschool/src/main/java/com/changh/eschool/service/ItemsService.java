@@ -5,7 +5,7 @@ import java.util.List;
 import com.changh.eschool.entity.Items;
 import com.changh.eschool.entity.Order;
 
-
+@SuppressWarnings("rawtypes")
 public interface ItemsService {
 	//delete
 	public void delete(int itemId);
@@ -27,4 +27,3 @@ public interface ItemsService {
 	 */
 	public Order findByItemId(int itemId);
 }
-

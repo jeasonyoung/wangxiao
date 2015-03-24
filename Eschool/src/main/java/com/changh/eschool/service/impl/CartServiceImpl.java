@@ -17,9 +17,9 @@ import com.changh.eschool.until.Constant;
 import com.changh.eschool.until.Escape;
 
 //购物车组件
-
 public class CartServiceImpl implements CartService, Serializable
 {
+	private static final long serialVersionUID = 1L;
 	//属性, 购物车页面的的所有信息都应包含进来
 	private List<CartItem> items = new ArrayList<CartItem>();
 	public List<CartItem> getItems() {

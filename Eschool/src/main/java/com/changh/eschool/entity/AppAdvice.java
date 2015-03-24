@@ -1,7 +1,6 @@
 package com.changh.eschool.entity;
 
 import java.util.Date;
-
 /*
  * advice_content varchar(2000) not null,
 	advice_addTime datetime not null,
@@ -51,6 +50,5 @@ public class AppAdvice {
 	}
 	public void setStuId(Integer stuId) {
 		this.stuId = stuId;
-	}
-	
+	}	
 }

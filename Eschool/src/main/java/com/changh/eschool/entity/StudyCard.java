@@ -1,21 +1,13 @@
 package com.changh.eschool.entity;
-// default package
 
 import java.util.Date;
-
 import com.changh.eschool.until.TimeFormat;
-
-
 /**
  * StudyCard entity. @author MyEclipse Persistence Tools
  */
-
 public class StudyCard  implements java.io.Serializable {
-
-
-    // Fields    
-
-     private Integer cardId;
+	private static final long serialVersionUID = 1L;
+	private Integer cardId;
      private Integer id;
      private String cardPassword;
      private Integer cardValue;
@@ -29,11 +21,9 @@ public class StudyCard  implements java.io.Serializable {
      //
      private String present;
     // Constructors
-
     /** default constructor */
     public StudyCard() {
     }
-
 	/** minimal constructor */
     public StudyCard(Integer cardId, Integer id, String cardPassword, Integer cardValue, Date cardAddTime, Date cardOverTime) {
         this.cardId = cardId;
@@ -43,7 +33,6 @@ public class StudyCard  implements java.io.Serializable {
         this.cardAddTime = cardAddTime;
         this.cardOverTime = cardOverTime;
     }
-    
     /** full constructor */
     public StudyCard(Integer cardId, Integer id, String cardPassword, Integer cardValue, Date cardAddTime, Date cardOverTime, long stuId, Date cardUseTime, Integer cardIsPresent) {
         this.cardId = cardId;
@@ -56,22 +45,16 @@ public class StudyCard  implements java.io.Serializable {
         this.cardUseTime = cardUseTime;
         this.cardIsPresent = cardIsPresent;
     }
-
-   
     // Property accessors
-
     public Integer getCardId() {
         return this.cardId;
     }
-    
     public void setCardId(Integer cardId) {
         this.cardId = cardId;
     }
-
     public Integer getId() {
         return this.id;
     }
-    
     public void setId(Integer id) {
         this.id = id;
     }
@@ -151,12 +134,8 @@ public class StudyCard  implements java.io.Serializable {
 		return "wx"+time+"mf"+cardId;
 		return "wx"+time+"sf"+cardId;
 	}
-
+	
 	public void setCardNo(String cardNo) {
 		this.cardNo = cardNo;
 	}
-
-
-
-
 }

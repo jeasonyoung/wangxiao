@@ -1,7 +1,6 @@
 package com.changh.eschool.entity;
 
 import java.util.Map;
-
 /**
  * $.ajax后需要接受的JSON
  * 
@@ -63,5 +62,4 @@ public class AjaxJson {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 }

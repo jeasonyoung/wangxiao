@@ -9,6 +9,7 @@ import sun.misc.BASE64Encoder;
  * @author Mr.rong
  *
  */
+@SuppressWarnings("restriction")
 public class DegistUtil {
 	/**
 	 * 利用MD5算法加密

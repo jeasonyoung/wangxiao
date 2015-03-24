@@ -1,7 +1,6 @@
 package com.changh.eschool.action.member;
 
 import java.util.List;
-
 import com.changh.eschool.action.BaseAction;
 import com.changh.eschool.entity.ClassDetail;
 import com.changh.eschool.entity.Grade;
@@ -103,6 +102,5 @@ public class MyClassAction extends BaseAction {
 	}
 	public void setGradeTime(Integer gradeTime) {
 		this.gradeTime = gradeTime;
-	}
-	
+	}	
 }

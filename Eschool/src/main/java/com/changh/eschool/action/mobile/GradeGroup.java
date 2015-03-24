@@ -16,7 +16,6 @@ public class GradeGroup {
 	public void setObj(Object obj) {
 		this.obj = obj;
 	}
-	
 	public int getComplex() {
 		return complex;
 	}
@@ -28,6 +27,5 @@ public class GradeGroup {
 		this.name = name;
 		this.obj = obj;
 		this.complex = complex;
-	}
-	
+	}	
 }

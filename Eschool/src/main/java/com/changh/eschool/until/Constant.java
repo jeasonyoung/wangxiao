@@ -1,9 +1,9 @@
 package com.changh.eschool.until;
-/**
+/*
  * 常量类
  * @author Administrator
  *
- */
+ **/
 public class Constant {
 		//课节是否收费
 		public static final int FREE = 1;

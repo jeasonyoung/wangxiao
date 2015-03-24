@@ -1,4 +1,4 @@
-﻿package com.changh.eschool.pay.alipay.util;
+package com.changh.eschool.pay.alipay.util;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

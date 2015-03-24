@@ -1,15 +1,12 @@
 package com.changh.eschool.entity;
 
 import java.util.Date;
-
 /**
  * TbQuestionError entity. @author MyEclipse Persistence Tools
  */
 
 public class ExamQuestionError implements java.io.Serializable {
-
-	// Fields
-
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private Integer paperId;
 	private Integer questId;
@@ -24,11 +21,9 @@ public class ExamQuestionError implements java.io.Serializable {
 	private String status;
 
 	// Constructors
-
 	/** default constructor */
 	public ExamQuestionError() {
 	}
-
 	/** minimal constructor */
 	public ExamQuestionError(Integer id, Integer questId, Integer errorType,
 			Integer errorStatus) {
@@ -56,7 +51,6 @@ public class ExamQuestionError implements java.io.Serializable {
 	}
 
 	// Property accessors
-
 	public Integer getId() {
 		return this.id;
 	}
@@ -158,5 +152,4 @@ public class ExamQuestionError implements java.io.Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
 }

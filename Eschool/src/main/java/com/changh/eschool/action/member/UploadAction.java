@@ -17,11 +17,8 @@ import com.changh.eschool.until.FileUtil;
 import com.changh.eschool.until.TimeFormat;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-
-
-
-
 public class UploadAction extends ActionSupport{
+	private static final long serialVersionUID = 1L;
 	private File mf;//客户端上传的临时文件对象
 	private String mfFileName;//mf+FileName 原文件名
 	private String mfContentType;//获取文件MIME 类型
@@ -90,6 +87,7 @@ public class UploadAction extends ActionSupport{
 	public int getImgHeight() {
 		return imgHeight;
 	}
+	
 	public void addActionError(String anErrorMessage) {    
 		  
 		//这里要先判断一下，是我们要替换的错误，才处理    
@@ -116,5 +114,5 @@ public class UploadAction extends ActionSupport{
 		     super.addActionError(anErrorMessage);    
 		}    
 		  
-		}   
+	}   
 }

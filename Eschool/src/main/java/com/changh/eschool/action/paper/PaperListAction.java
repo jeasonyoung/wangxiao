@@ -1,7 +1,6 @@
 package com.changh.eschool.action.paper;
 
 import java.util.List;
-import java.util.Map;
 
 import com.changh.eschool.entity.ExamPaper;
 import com.changh.eschool.service.ExamPaperService;
@@ -70,6 +69,5 @@ public class PaperListAction {
 	}
 	public void setTotal(int total) {
 		this.total = total;
-	}
-	
+	}	
 }

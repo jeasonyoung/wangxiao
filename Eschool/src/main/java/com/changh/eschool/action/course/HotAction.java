@@ -15,16 +15,16 @@ public class HotAction {
 	private ItemsService itemsService;
 	private ClassDetailService classDetailService;
 	private ClassPackageService classPackageService;
-
 	
 	public ClassPackageService getClassPackageService() {
 		return classPackageService;
 	}
-
+	
 	public void setClassPackageService(ClassPackageService classPackageService) {
 		this.classPackageService = classPackageService;
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	public String execute(){
 		Grade g = classDetailService.findGradeByClassId(classId);
 	    int	examId = g.getExamCategory().getExamPid();
@@ -69,5 +69,4 @@ public class HotAction {
 	public void setList(List<Object> list) {
 		this.list = list;
 	}
-
 }

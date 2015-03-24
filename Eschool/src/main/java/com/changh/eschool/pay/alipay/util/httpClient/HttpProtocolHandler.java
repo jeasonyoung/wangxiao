@@ -1,4 +1,4 @@
-﻿package com.changh.eschool.pay.alipay.util.httpClient;
+package com.changh.eschool.pay.alipay.util.httpClient;
 
 import java.io.IOException;
 import java.net.UnknownHostException;

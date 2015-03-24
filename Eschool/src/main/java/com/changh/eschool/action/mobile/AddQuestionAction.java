@@ -1,9 +1,6 @@
-	package com.changh.eschool.action.mobile;
+package com.changh.eschool.action.mobile;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.Date;
-
 import com.changh.eschool.entity.Question;
 import com.changh.eschool.entity.Student;
 import com.changh.eschool.service.QuestionService;
@@ -121,7 +118,5 @@ public class AddQuestionAction {
 
 	public void setQuestionContent(String questionContent) {
 		this.questionContent = questionContent;
-	}
-	
+	}	
 }
-

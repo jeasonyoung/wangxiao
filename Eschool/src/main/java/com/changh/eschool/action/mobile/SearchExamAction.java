@@ -4,7 +4,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.List;
 
-import com.changh.eschool.entity.ExamCategory;
 import com.changh.eschool.entity.ExamCategory1;
 import com.changh.eschool.service.ExamCategoryService;
 
@@ -37,7 +36,6 @@ public class SearchExamAction {
 		try {
 			this.keywords = URLDecoder.decode(keywords,"gbk");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -46,6 +44,5 @@ public class SearchExamAction {
 	}
 	public void setExamCategoryService(ExamCategoryService examCategoryService) {
 		this.examCategoryService = examCategoryService;
-	}
-	
+	}	
 }

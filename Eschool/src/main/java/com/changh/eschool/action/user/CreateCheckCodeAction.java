@@ -5,9 +5,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.Map;
-
 import javax.imageio.ImageIO;
-
 import com.changh.eschool.action.BaseAction;
 import com.changh.eschool.until.ImageUtil;
 

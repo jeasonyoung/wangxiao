@@ -10,6 +10,5 @@ public class HibernateExamQuestionErrorDAO extends HibernateDaoSupport implement
 	public void save(ExamQuestionError error) throws Exception {
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().save(error);
-	}
-	
+	}	
 }

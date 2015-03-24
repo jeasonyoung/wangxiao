@@ -2,7 +2,6 @@ package com.changh.eschool.action.member;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
@@ -213,6 +212,5 @@ public class ClassRoomHdAction extends BaseAction{
 	}
 	public void setExamCategoryService(ExamCategoryService examCategoryService) {
 		this.examCategoryService = examCategoryService;
-	}
-		
+	}		
 }

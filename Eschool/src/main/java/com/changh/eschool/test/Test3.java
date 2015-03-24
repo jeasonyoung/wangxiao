@@ -8,12 +8,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.changh.eschool.service.CartService;
 
 public class Test3 {
+	@SuppressWarnings("resource")
 	public void testCart()throws Exception
 	{
 		Cookie c = new Cookie("grade","1001,1004");
 		String[] configs = {"applicationContext-base.xml"};
-		ApplicationContext ac = 
-			new ClassPathXmlApplicationContext(configs);
+		ApplicationContext ac =  new ClassPathXmlApplicationContext(configs);
 		CartService cartService = (CartService) ac.getBean("cartService");
 		System.out.println("--------------------------");
 		System.out.println(cartService.getProFromCookie(null, c));

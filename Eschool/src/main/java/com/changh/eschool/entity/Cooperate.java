@@ -2,14 +2,8 @@ package com.changh.eschool.entity;
 
 import java.util.Date;
 
-/**
- * Cooperate entity. @author MyEclipse Persistence Tools
- */
-
 public class Cooperate implements java.io.Serializable {
-
-	// Fields
-
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String coopName;
 	private String coopKey;
@@ -19,19 +13,14 @@ public class Cooperate implements java.io.Serializable {
 	private String coopPhone;
 	private String coopQq;
 	private String coopEmail;
-
-	// Constructors
-
 	/** default constructor */
 	public Cooperate() {
 	}
-
 	/** minimal constructor */
 	public Cooperate(String coopKey, String coopUrl) {
 		this.coopKey = coopKey;
 		this.coopUrl = coopUrl;
 	}
-
 	/** full constructor */
 	public Cooperate(String coopName, String coopKey, String coopUrl,
 			Date updatetime, Date addtime, String coopPhone, String coopQq,
@@ -45,9 +34,6 @@ public class Cooperate implements java.io.Serializable {
 		this.coopQq = coopQq;
 		this.coopEmail = coopEmail;
 	}
-
-	// Property accessors
-
 	public Integer getId() {
 		return this.id;
 	}
@@ -119,5 +105,4 @@ public class Cooperate implements java.io.Serializable {
 	public void setCoopEmail(String coopEmail) {
 		this.coopEmail = coopEmail;
 	}
-
 }

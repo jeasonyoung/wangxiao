@@ -13,43 +13,35 @@ public class FindCardBalanceAction {
 	public StudyCard getCard() {
 		return card;
 	}
-
-
+	
 	public String getPassword() {
 		return password;
 	}
-
-
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	
 	public String getCardNo() {
 		return cardNo;
 	}
 
-
 	public void setCardNo(String cardNo) {
 		this.cardNo = cardNo;
 	}
-
 
 	public int getCardId() {
 		return cardId;
 	}
 
-
 	public void setCardId(int cardId) {
 		this.cardId = cardId;
 	}
-
 
 	public void setStudyCardService(StudyCardService studyCardService) {
 		this.studyCardService = studyCardService;
 	}
 	
-
 	public String execute()throws Exception
 	{
 		cardId = Integer.parseInt(cardNo.substring(cardNo.indexOf("f")+1));

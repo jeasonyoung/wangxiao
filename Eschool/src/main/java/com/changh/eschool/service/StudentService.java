@@ -7,8 +7,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 import com.changh.eschool.entity.Address;
 import com.changh.eschool.entity.Cooperate;
-import com.changh.eschool.entity.Items;
-import com.changh.eschool.entity.Order;
 import com.changh.eschool.entity.Student;
 
 public interface StudentService {
@@ -47,5 +45,4 @@ public interface StudentService {
 	
 	/**合作机构**/
 	public Cooperate findCooperate(String url);
-
 }

@@ -61,7 +61,7 @@ public class ImageUtils {
 		double dDstScale = tarWidth * 1.0 / tarHeight;
 
 		// 先确定剪裁尺寸
-		int iDstLeft, iDstTop, iDstWidth, iDstHeight;
+		int /*iDstLeft, iDstTop,*/ iDstWidth, iDstHeight;
 		if (dDstScale > dSrcScale) { // 目标图片宽
 			iDstWidth = iSrcWidth;
 			iDstHeight = (int) (iDstWidth * 1.0 / dDstScale);
@@ -69,14 +69,12 @@ public class ImageUtils {
 			iDstHeight = iSrcHeight;
 			iDstWidth = (int) (iDstHeight * dDstScale);
 		}
-		iDstLeft = (iSrcWidth - iDstWidth) / 2;
-		iDstTop = (iSrcHeight - iDstHeight) / 2;
+		//iDstLeft = (iSrcWidth - iDstWidth) / 2;
+		//iDstTop = (iSrcHeight - iDstHeight) / 2;
 
 		// 剪裁
-		this.image = image
-				.getSubimage(x, y, tarWidth, tarHeight);
+		this.image = image.getSubimage(x, y, tarWidth, tarHeight);
 				//.getSubimage(iDstLeft, iDstTop, iDstWidth, iDstHeight);
-
 	}
 
 	/**
@@ -91,7 +89,6 @@ public class ImageUtils {
 		g.drawImage(image, 0, 0, null); // 绘制目标图
 		g.dispose();
 		this.image = tagImage;
-
 	}
 
 	/**

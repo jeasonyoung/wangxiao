@@ -28,6 +28,7 @@ public class HibernateExamQuestionDAO extends HibernateDaoSupport implements
 		this.getHibernateTemplate().update(question);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<ExamQuestion> findPageByCriteria(final String criteria,
 			final int page, final int pagesize, final String sortname,
 			final String sortorder) throws Exception {
@@ -51,6 +52,7 @@ public class HibernateExamQuestionDAO extends HibernateDaoSupport implements
 		String hql = "select count(*) from ExamQuestion eq " + criteria;
 		return (Long) this.getHibernateTemplate().find(hql).get(0);
 	}
+	@SuppressWarnings("unchecked")
 	public List<ExamQuestion> findByCriteria(String criteria) throws Exception {
 		// TODO Auto-generated method stub
 		String hql = "from ExamQuestion eq "+criteria;
@@ -62,18 +64,21 @@ public class HibernateExamQuestionDAO extends HibernateDaoSupport implements
 		this.getHibernateTemplate().delete(question);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<ExamQuestion> findAllByPaperId(int paperId) throws Exception {
 		String hql = "from ExamQuestion where questPaperId = ? order by questRuleId asc,questOrderId asc";
 		Object[] params = { paperId };
 		return this.getHibernateTemplate().find(hql, params);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<ExamQuestion> findAllByRuleId(int ruleId) throws Exception {
 		String hql = "from ExamQuestion where questRuleId = ? order by questOrderId asc";
 		Object[] params = { ruleId };
 		return this.getHibernateTemplate().find(hql, params);
 	}
 	// 找题号
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<String> findQuestionNo(final int ruleId) throws Exception {
 		// TODO Auto-generated method stub
 		List<Integer> list = (List<Integer>) this.getHibernateTemplate()
@@ -91,6 +96,7 @@ public class HibernateExamQuestionDAO extends HibernateDaoSupport implements
 		}
 		return list1;
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public String findLinkedQid() throws Exception {
 		// TODO Auto-generated method stub
 		List<String> list = (List<String>)this.getHibernateTemplate()
@@ -103,6 +109,5 @@ public class HibernateExamQuestionDAO extends HibernateDaoSupport implements
 		});
 		if(list.isEmpty()) return null;
 		return list.get(0);
-	}
-	
+	}	
 }

@@ -6,9 +6,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 public class TenpayUtil {
-	
 	/**
 	 * 把对象转换成字符串
 	 * @param obj
@@ -20,7 +18,6 @@ public class TenpayUtil {
 		
 		return obj.toString();
 	}
-	
 	/**
 	 * 把对象转换为int数值.
 	 * 
@@ -38,7 +35,6 @@ public class TenpayUtil {
 		}
 		return a;
 	}
-	
 	/**
 	 * 获取当前时间 yyyyMMddHHmmss
 	 * @return String
@@ -128,5 +124,4 @@ public class TenpayUtil {
 		SimpleDateFormat sdf = new SimpleDateFormat(formatType);
 		return sdf.format(date);
 	}
-
 }

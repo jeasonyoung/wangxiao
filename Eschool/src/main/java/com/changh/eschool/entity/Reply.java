@@ -1,18 +1,11 @@
 package com.changh.eschool.entity;
-// default package
-
 import java.util.Date;
-
-
 /**
  * Reply entity. @author MyEclipse Persistence Tools
  */
-
 public class Reply  implements java.io.Serializable {
-
-
-    // Fields    
-
+	private static final long serialVersionUID = 1L;
+	// Fields
      private Integer replyId;
      //private AskOrComlain askOrComlain;
      private Integer acId;
@@ -20,10 +13,6 @@ public class Reply  implements java.io.Serializable {
      private String replyContent;
      private Date replyAddTime;
      private String replyPeople;
-
-
-    // Constructors
-
     /** default constructor */
     public Reply() {
     }
@@ -44,9 +33,7 @@ public class Reply  implements java.io.Serializable {
         this.replyPeople = replyPeople;
     }
 	*/
-   
     // Property accessors
-
     public Integer getReplyId() {
         return this.replyId;
     }
@@ -102,13 +89,4 @@ public class Reply  implements java.io.Serializable {
 	public void setAcId(Integer acId) {
 		this.acId = acId;
 	}
-   
-    
-
-
-
-
-
-
-
 }

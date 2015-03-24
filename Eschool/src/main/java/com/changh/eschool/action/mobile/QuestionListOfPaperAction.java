@@ -1,7 +1,6 @@
 package com.changh.eschool.action.mobile;
 
 import java.util.List;
-
 import com.changh.eschool.entity.ExamQuestion;
 import com.changh.eschool.service.ExamPaperService;
 
@@ -32,6 +31,5 @@ public class QuestionListOfPaperAction {
 	}
 	public void setExamPaperService(ExamPaperService examPaperService) {
 		this.examPaperService = examPaperService;
-	}
-	
+	}	
 }

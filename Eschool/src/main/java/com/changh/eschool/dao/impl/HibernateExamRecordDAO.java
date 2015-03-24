@@ -27,6 +27,7 @@ public class HibernateExamRecordDAO extends HibernateDaoSupport implements ExamR
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().update(record);
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List<ExamRecord> findPageByCriteria(final String criteria,final  int page,
 			final int pagesize, final String sortname, final String sortorder) throws Exception {
@@ -50,6 +51,7 @@ public class HibernateExamRecordDAO extends HibernateDaoSupport implements ExamR
 		String hql = "select count(*) from ExamRecord er " + criteria;
 		return (Long) this.getHibernateTemplate().find(hql).get(0);
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public ExamRecord findBy2Id(int stuId, int paperId) throws Exception {
 		// TODO Auto-generated method stub
@@ -66,6 +68,7 @@ public class HibernateExamRecordDAO extends HibernateDaoSupport implements ExamR
 		Object[] params = {paperId};
 		return (Long) this.getHibernateTemplate().find(hql, params).get(0);
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public long findScoreRank(final int stuId,final int paperId) throws Exception {
 		// TODO Auto-generated method stub

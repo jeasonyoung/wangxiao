@@ -1,20 +1,16 @@
 package com.changh.eschool.action.cart;
-/**
- * 购物车列表
- */
+
 import java.util.List;
-
 import javax.servlet.http.Cookie;
-
 import com.changh.eschool.action.BaseAction;
 import com.changh.eschool.entity.CartItem;
 import com.changh.eschool.service.CartService;
 import com.changh.eschool.until.Constant;
 
 public class CartListAction extends BaseAction{
-	private List<CartItem> list;	//购物车
-	private double totalRMoney;		//优惠价
-	private double totalOMoney;		//原价
+	private List<CartItem> list;
+	private double totalRMoney;	
+	private double totalOMoney;	
 	private String gradeIds;
 	private String packageIds;
 	
@@ -43,7 +39,6 @@ public class CartListAction extends BaseAction{
 	}
 	public String execute()throws Exception
 	{
-		//每次都需要从cookie中读取
 		Cookie[] cookies = httpRequest.getCookies();
 		Cookie gradeCookie = null;
 		Cookie packageCookie = null;
@@ -63,7 +58,6 @@ public class CartListAction extends BaseAction{
 		list = cartService.getProFromCookie(packageCookie,gradeCookie);
 		totalRMoney = cartService.getTotalRMoney();
 		totalOMoney = cartService.getTotalOMoney();
-		//维护 两个cookie,清空cookie时，session中若有购物车，则写cookie
 		packageIds = cartService.getProIds(Constant.CLASS_PACKAGE);
 		gradeIds = cartService.getProIds(Constant.SINGER_GRADE);
 		}

@@ -2,7 +2,6 @@ package com.changh.eschool.action.order;
 
 import com.changh.eschool.action.BaseAction;
 import com.changh.eschool.entity.Student;
-import com.changh.eschool.pay.alipay.util.AlipayCore;
 import com.changh.eschool.service.OrderService;
 
 public class PaySuccessAction extends BaseAction{
@@ -70,7 +69,7 @@ public class PaySuccessAction extends BaseAction{
 	public void setExtra_common_param(String extra_common_param) {
 		this.extra_common_param = extra_common_param;
 	}
-
+	
 	private OrderService orderService;
 	
 	public void setOrderService(OrderService orderService) {

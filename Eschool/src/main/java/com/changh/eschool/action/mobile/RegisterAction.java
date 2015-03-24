@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.changh.eschool.entity.Student;
 import com.changh.eschool.service.StudentService;
-import com.changh.eschool.until.DegistUtil;
 
 public class RegisterAction {
 	private String username;
@@ -77,6 +76,5 @@ public class RegisterAction {
 	}
 	public void setStudentService(StudentService studentService) {
 		this.studentService = studentService;
-	}
-	
+	}	
 }

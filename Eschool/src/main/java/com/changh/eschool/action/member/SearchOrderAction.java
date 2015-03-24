@@ -1,9 +1,6 @@
 package com.changh.eschool.action.member;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.List;
-
 import com.changh.eschool.action.BaseAction;
 import com.changh.eschool.dao.OrderDAO;
 import com.changh.eschool.entity.Order;
@@ -85,4 +82,4 @@ public class SearchOrderAction extends BaseAction {
 		total = orderService.findTotal(criteria+" and o.student.stuId = "+student.getStuId(),keywords);
 		return "success";
 	}
-}	
+}

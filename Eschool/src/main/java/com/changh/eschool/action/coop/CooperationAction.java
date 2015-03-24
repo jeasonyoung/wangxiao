@@ -4,7 +4,6 @@ import java.util.Date;
 
 import org.apache.struts2.ServletActionContext;
 import org.json.JSONObject;
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
 import com.changh.eschool.action.BaseAction;
 import com.changh.eschool.entity.AjaxJson;
@@ -15,9 +14,7 @@ import com.changh.eschool.service.GradeService;
 import com.changh.eschool.service.OrderService;
 import com.changh.eschool.service.StudentService;
 import com.changh.eschool.until.Constant;
-import com.changh.eschool.until.DegistUtil;
 import com.changh.eschool.until.StringUtil;
-
 public class CooperationAction extends BaseAction{
 	//合作方提交的学员信息封装对象
 	//private Student stu = new Student();

@@ -1,18 +1,14 @@
 package com.changh.eschool.entity;
 
-
 /**
  * CradeCategory entity. @author MyEclipse Persistence Tools
  */
-
 public class GradeCategory implements java.io.Serializable {
-
+	private static final long serialVersionUID = 1L;
 	// Fields
 	private Integer gtypeId;
 	private Integer id;
 	private String gtypeName;
-	
-	
 	// Constructors
 	/** default constructor */
 	public GradeCategory() {

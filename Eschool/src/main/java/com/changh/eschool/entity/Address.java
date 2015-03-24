@@ -1,18 +1,10 @@
 package com.changh.eschool.entity;
-// default package
-
-
-
 /**
  * Address entity. @author MyEclipse Persistence Tools
  */
-
 public class Address  implements java.io.Serializable {
-
-
-    // Fields    
-
-     private Integer addrId;
+	private static final long serialVersionUID = 1L;
+	private Integer addrId;
      private Integer id;
      private String addrReceiveName;
      private String addrFullAddress;
@@ -22,14 +14,9 @@ public class Address  implements java.io.Serializable {
      private String addrPostalCode;
      private Integer stuId;			//学员id
      private Integer addrIsDefault; //是否默认地址
-
-
-    // Constructors
-
     /** default constructor */
     public Address() {
     }
-
 	/** minimal constructor */
     public Address(Integer id, String addrReceiveName, String addrFullAddress, String addrMobile, Integer stuId) {
         this.id = id;
@@ -38,7 +25,6 @@ public class Address  implements java.io.Serializable {
         this.addrMobile = addrMobile;
         this.stuId = stuId;
     }
-    
     /** full constructor */
     public Address(Integer id, String addrReceiveName, String addrFullAddress, String addrMobile, String addrEmail, String addrPhone, String addrPostalCode, Integer stuId, Integer addrIsDefault) {
         this.id = id;
@@ -51,14 +37,9 @@ public class Address  implements java.io.Serializable {
         this.stuId = stuId;
         this.addrIsDefault = addrIsDefault;
     }
-
-   
-    // Property accessors
-
     public Integer getAddrId() {
         return this.addrId;
     }
-    
     public void setAddrId(Integer addrId) {
         this.addrId = addrId;
     }
@@ -214,13 +195,4 @@ public class Address  implements java.io.Serializable {
 			return false;
 		return true;
 	}
-   
-    
-
-
-
-
-
-
-
 }

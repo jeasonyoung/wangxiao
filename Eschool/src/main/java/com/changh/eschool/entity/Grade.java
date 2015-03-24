@@ -2,15 +2,12 @@ package com.changh.eschool.entity;
 
 import java.util.Date;
 import java.util.List;
-
 /**
  * Grade entity. @author MyEclipse Persistence Tools
  */
 
 public class Grade implements java.io.Serializable {
-
-	// Fields
-
+	private static final long serialVersionUID = 1L;
 	private Integer gradeId;
 	private GradeCategory gradeCategory;
 	private ExamCategory examCategory;
@@ -26,7 +23,6 @@ public class Grade implements java.io.Serializable {
 	private Integer dealId;
 	private String gradeRemark;
 	private List<ClassDetail> classDetails;
-	
 	//方便输出
 	private String name;
 	private String tchName;

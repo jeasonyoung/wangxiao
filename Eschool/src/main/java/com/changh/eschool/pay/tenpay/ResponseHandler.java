@@ -27,6 +27,7 @@ public class ResponseHandler {
 	private String key;
 	
 	/** 应答的参数 */
+	@SuppressWarnings("rawtypes")
 	private SortedMap parameters; 
 	
 	/** debug信息 */
@@ -44,6 +45,7 @@ public class ResponseHandler {
 	 * @param request
 	 * @param response
 	 */
+	@SuppressWarnings("rawtypes")
 	public ResponseHandler(HttpServletRequest request,
 			HttpServletResponse response)  {
 		this.request = request;
@@ -94,6 +96,7 @@ public class ResponseHandler {
 	 * @param parameter 参数名称
 	 * @param parameterValue 参数值
 	 */
+	@SuppressWarnings("unchecked")
 	public void setParameter(String parameter, String parameterValue) {
 		String v = "";
 		if(null != parameterValue) {
@@ -106,6 +109,7 @@ public class ResponseHandler {
 	 * 返回所有的参数
 	 * @return SortedMap
 	 */
+	@SuppressWarnings("rawtypes")
 	public SortedMap getAllParameters() {
 		return this.parameters;
 	}
@@ -114,6 +118,7 @@ public class ResponseHandler {
 	 * 是否财付通签名,规则是:按参数名称a-z排序,遇到空值的参数不参加签名。
 	 * @return boolean
 	 */
+	@SuppressWarnings("rawtypes")
 	public boolean isTenpaySign() {
 		StringBuffer sb = new StringBuffer();
 		Set es = this.parameters.entrySet();
@@ -155,7 +160,6 @@ public class ResponseHandler {
 		out.println(strHtml);
 		out.flush();
 		out.close();
-
 	}
 	
 	/**
@@ -171,6 +175,7 @@ public class ResponseHandler {
 	 * @param uriEncoding
 	 * @throws UnsupportedEncodingException
 	 */
+	@SuppressWarnings("rawtypes")
 	public void setUriEncoding(String uriEncoding)
 			throws UnsupportedEncodingException {
 		if (!"".equals(uriEncoding.trim())) {
@@ -208,6 +213,5 @@ public class ResponseHandler {
 	
 	protected HttpServletResponse getHttpServletResponse() {
 		return this.response;
-	}
-	
+	}	
 }

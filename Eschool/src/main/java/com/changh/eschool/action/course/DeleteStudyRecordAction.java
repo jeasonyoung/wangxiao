@@ -22,6 +22,5 @@ public class DeleteStudyRecordAction extends BaseAction{
 	}
 	public void setStudyRecordService(StudyRecordService studyRecordService) {
 		this.studyRecordService = studyRecordService;
-	}
-	
-}	
+	}	
+}

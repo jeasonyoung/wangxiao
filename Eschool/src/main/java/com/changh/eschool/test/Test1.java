@@ -1,19 +1,11 @@
 package com.changh.eschool.test;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.changh.eschool.dao.ClassDetailDAO;
-import com.changh.eschool.dao.ExamCategoryDAO;
-import com.changh.eschool.dao.ExamRecordDAO;
-import com.changh.eschool.dao.impl.HibernateExamCategoryDAO;
-
 public class Test1 {
 	public void TestDao()throws Exception
 	{
-		String[] configs = {"applicationContext-base.xml"};
-		ApplicationContext ac = 
-			new ClassPathXmlApplicationContext(configs);
+//		String[] configs = {"applicationContext-base.xml"};
+//		ApplicationContext ac = 
+//			new ClassPathXmlApplicationContext(configs);
 	/*	ExamRecordDAO dao = (ExamRecordDAO)ac.getBean("examRecordDao");*/
 //		dao.findPageByCriteria(0, 0, null, null, null);
 //		System.out.println(dao.findPageByItemKeywords(2, 10, 127, "一级建造", "order_addTime","desc").size());
@@ -37,8 +29,6 @@ public class Test1 {
 		System.out.println(dao.findByStuId(127).get(0).getName());*/
 		//dao.searchPage(1, 10, " q.questionAddTime ", " desc ", " ,QuestionCollect qc join fetch Student qcs where qcs.stuId=127 and q.questionId = qc.questionId ");
 		//StudentDAO dao = (StudentDAO) ac.getBean("studentDao");
-		//dao.isExist("gaga", "45@qq.com");
-		
+		//dao.isExist("gaga", "45@qq.com");	
 	}
-	
 }

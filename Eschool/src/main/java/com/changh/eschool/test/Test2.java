@@ -1,16 +1,9 @@
 package com.changh.eschool.test;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.UUID;
-
-import com.changh.eschool.until.Arith;
-import com.changh.eschool.until.DegistUtil;
-import com.changh.eschool.until.Escape;
-import com.changh.eschool.until.TimeFormat;
 
 public class Test2 {
 	public static void main(String[] args) throws ParseException, CloneNotSupportedException, UnsupportedEncodingException {

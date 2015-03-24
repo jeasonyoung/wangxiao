@@ -6,7 +6,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.changh.eschool.entity.ExamRecord;
 import com.changh.eschool.entity.SimpleTeacher;
 import com.changh.eschool.until.Escape;
 
@@ -39,9 +38,9 @@ public class Test5 {
 		System.out.println(Escape.unescapeId("5005SS"));
 
 	}
-	private static double getEachScore(String scores,String flag)
-	{
-		String s1 = scores.substring(scores.indexOf(flag),scores.length());
-		return Double.parseDouble(s1.substring(s1.indexOf(flag)+flag.length(),s1.indexOf("&")));
-	}
+//	private static double getEachScore(String scores,String flag)
+//	{
+//		String s1 = scores.substring(scores.indexOf(flag),scores.length());
+//		return Double.parseDouble(s1.substring(s1.indexOf(flag)+flag.length(),s1.indexOf("&")));
+//	}
 }

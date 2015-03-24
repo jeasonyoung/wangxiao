@@ -1,7 +1,7 @@
 package com.changh.eschool.entity;
 
-
 public class SimpleTeacher implements java.io.Serializable {
+	private static final long serialVersionUID = 1L;
 	private Integer tchId;
 	private int id=1;
 	private String tchName;

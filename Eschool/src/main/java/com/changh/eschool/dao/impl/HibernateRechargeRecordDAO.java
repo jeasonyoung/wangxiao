@@ -11,6 +11,7 @@ import com.changh.eschool.dao.RechargeRecordDAO;
 import com.changh.eschool.entity.RechargeRecord;
 
 public class HibernateRechargeRecordDAO extends HibernateDaoSupport implements RechargeRecordDAO{
+	@SuppressWarnings("unchecked")
 	public List<RechargeRecord> findByStuId(int stuId) throws Exception {
 		// TODO Auto-generated method stub
 		String hql ="from RechargeRecord r where r.student.stuId = "+stuId;
@@ -20,6 +21,7 @@ public class HibernateRechargeRecordDAO extends HibernateDaoSupport implements R
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().save(record);
 	}
+	@SuppressWarnings("unchecked")
 	public RechargeRecord findFreeCard(int stuId) throws Exception {
 		// TODO Auto-generated method stub
 		String hql = "from RechargeRecord r where r.student.stuId = ? and r.rcIsPresent = 1 and r.rcType = 0";
@@ -29,6 +31,7 @@ public class HibernateRechargeRecordDAO extends HibernateDaoSupport implements R
 		return list.get(0);
 	}
 		
+	@SuppressWarnings("unchecked")
 	public RechargeRecord findByCardId(int cardId) throws Exception {
 		// TODO Auto-generated method stub
 		String hql ="from RechargeRecord where rcCardId = "+cardId;
@@ -39,6 +42,7 @@ public class HibernateRechargeRecordDAO extends HibernateDaoSupport implements R
 		}
 		return list.get(0);
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<RechargeRecord> findPageByStuId(final int stuId,final  int page,
 			final int pagesize, final String sortname, final String sortorder) throws Exception {
 		// TODO Auto-generated method stub

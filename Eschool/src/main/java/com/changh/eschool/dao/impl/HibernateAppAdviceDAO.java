@@ -13,6 +13,8 @@ import com.changh.eschool.dao.AppAdviceDAO;
 import com.changh.eschool.entity.AppAdvice;
 
 public class HibernateAppAdviceDAO extends HibernateDaoSupport implements AppAdviceDAO{
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List<AppAdvice> findPageByCriteria(final String criteria,final  int page,
 			final int pagesize,final  String sortname, final String sortorder) throws Exception {

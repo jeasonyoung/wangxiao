@@ -26,6 +26,7 @@ public class XMLUtil {
 	 * @throws JDOMException
 	 * @throws IOException
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Map doXMLParse(String strxml) throws JDOMException, IOException {
 		if(null == strxml || "".equals(strxml)) {
 			return null;
@@ -63,6 +64,7 @@ public class XMLUtil {
 	 * @param children
 	 * @return String
 	 */
+	@SuppressWarnings("rawtypes")
 	public static String getChildrenText(List children) {
 		StringBuffer sb = new StringBuffer();
 		if(!children.isEmpty()) {
@@ -80,7 +82,6 @@ public class XMLUtil {
 				sb.append("</" + name + ">");
 			}
 		}
-		
 		return sb.toString();
 	}
 	
@@ -98,6 +99,4 @@ public class XMLUtil {
 		in.close();
 		return (String)doc.getProperty("encoding");
 	}
-	
-	
 }

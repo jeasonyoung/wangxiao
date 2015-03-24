@@ -1,8 +1,6 @@
 package com.changh.eschool.action.mobile;
 
 import java.util.List;
-import java.util.Map;
-
 import com.changh.eschool.service.ClassPackageService;
 import com.changh.eschool.service.GradeService;
 
@@ -35,6 +33,5 @@ public class ClassGroupAction {
 	}
 	public List<GradeGroup> getMap() {
 		return map;
-	}
-		
+	}		
 }

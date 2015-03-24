@@ -1,7 +1,6 @@
 package com.changh.eschool.until;
 
 import org.apache.log4j.Logger;
-
 /**
  * log4j输出日志
  * @author Administrator

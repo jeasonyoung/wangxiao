@@ -1,13 +1,11 @@
 package com.changh.eschool.dao.impl;
 
 import java.util.List;
-
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-
 import com.changh.eschool.dao.AddressDAO;
 import com.changh.eschool.entity.Address;
-
 public class HibernateAddressDAO extends HibernateDaoSupport implements AddressDAO{
+	@SuppressWarnings("unchecked")
 	public List<Address> findByStuId(int stuId) throws Exception {
 		// TODO Auto-generated method stub
 		String hql = "from Address where stuId = "+stuId;
@@ -25,6 +23,7 @@ public class HibernateAddressDAO extends HibernateDaoSupport implements AddressD
 		// TODO Auto-generated method stub
 		return (Address) this.getHibernateTemplate().get(Address.class, aid);
 	}
+	@SuppressWarnings("unchecked")
 	public Address findDefault(int stuId) throws Exception {
 		// TODO Auto-generated method stub
 		String hql ="from Address where stuId = "+stuId +" and addrIsDefault = 1";

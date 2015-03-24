@@ -11,11 +11,8 @@ import com.changh.eschool.until.Constant;
  */
 
 public class ExamRule  implements java.io.Serializable {
-
-
-    // Fields    
-
-     private Integer ruleId;
+	private static final long serialVersionUID = 1L;
+	private Integer ruleId;
      private ExamPaper examPaper;
      private Integer id;
      private String ruleTitle;
@@ -29,7 +26,6 @@ public class ExamRule  implements java.io.Serializable {
      private Integer paperId;
      private String title;
      private String fullTitle;
-     
      private String userScore;//学员大题得分情况
     // Constructors
      
@@ -171,12 +167,4 @@ public class ExamRule  implements java.io.Serializable {
 	public void setFullTitle(String fullTitle) {
 		this.fullTitle = fullTitle;
 	}
-    
-
-
-
-
-
-
-
 }

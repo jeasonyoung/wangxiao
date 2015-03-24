@@ -1,9 +1,9 @@
 package com.changh.eschool.action.course;
-
 import java.util.List;
 
 import com.changh.eschool.service.ItemsService;
 
+@SuppressWarnings("rawtypes")
 public class BestAction {
 	private List list;
 	private ItemsService itemsService;
@@ -22,6 +22,4 @@ public class BestAction {
 	public void setItemsService(ItemsService itemsService) {
 		this.itemsService = itemsService;
 	}
- 
- 
 }

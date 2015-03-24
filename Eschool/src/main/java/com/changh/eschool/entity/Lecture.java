@@ -7,9 +7,7 @@ import java.util.Date;
  */
 
 public class Lecture implements java.io.Serializable {
-
-	// Fields
-
+	private static final long serialVersionUID = 1L;
 	private Integer lectId;
 	//private ClassDetail classDetail;
 	private Integer id;

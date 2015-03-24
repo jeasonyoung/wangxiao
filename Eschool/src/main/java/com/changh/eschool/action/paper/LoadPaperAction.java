@@ -2,8 +2,6 @@ package com.changh.eschool.action.paper;
 
 import java.util.List;
 
-import javax.servlet.http.Cookie;
-
 import com.changh.eschool.action.BaseAction;
 import com.changh.eschool.entity.ExamPaper;
 import com.changh.eschool.entity.ExamRecord;
@@ -146,6 +144,5 @@ public class LoadPaperAction extends BaseAction{
 	}
 	public void setTempAnswer(String tempAnswer) {
 		this.tempAnswer = tempAnswer;
-	}
-	
+	}	
 }

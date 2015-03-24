@@ -9,11 +9,8 @@ import java.util.Date;
  */
 
 public class Items  implements java.io.Serializable {
-
-
-    // Fields    
-
-     private Integer itemId;
+	private static final long serialVersionUID = 1L;
+	private Integer itemId;
      private Integer orderId; 
      private Integer id;
      private Integer productId;

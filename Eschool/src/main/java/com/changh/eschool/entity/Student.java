@@ -1,18 +1,9 @@
 package com.changh.eschool.entity;
 
 import java.util.Date;
-
-
-/**
- * Student entity. @author MyEclipse Persistence Tools
- */
-
 public class Student  implements java.io.Serializable,Cloneable{
-
-
-    // Fields    
-
-     private Integer stuId;
+	private static final long serialVersionUID = 1L;
+	private Integer stuId;
      private Integer id;
      private String stuUsername;
      private String stuPassword;
@@ -37,8 +28,7 @@ public class Student  implements java.io.Serializable,Cloneable{
       * qq号
       */
      private String QICQ;
-   
-
+     
 	// Constructors
      private String status;
 	/** default constructor */
@@ -271,5 +261,4 @@ public class Student  implements java.io.Serializable,Cloneable{
 	public void setQICQ(String qICQ) {
 			QICQ = qICQ;
 	}
-	
 }

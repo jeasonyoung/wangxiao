@@ -1,4 +1,4 @@
-﻿package com.changh.eschool.pay.alipay.util;
+package com.changh.eschool.pay.alipay.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import com.changh.eschool.pay.alipay.util.httpClient.HttpRequest;
 import com.changh.eschool.pay.alipay.util.httpClient.HttpResponse;
 import com.changh.eschool.pay.alipay.util.httpClient.HttpResultType;
 
-/* *
+/*
  *类名：AlipaySubmit
  *功能：支付宝各接口请求提交类
  *详细：构造支付宝各接口表单HTML文本，获取远程HTTP数据
@@ -24,7 +24,7 @@ import com.changh.eschool.pay.alipay.util.httpClient.HttpResultType;
  */
 
 public class AlipaySubmit {
-
+	
     /**
      * 生成要请求给支付宝的参数数组
      * @param sParaTemp 请求前的参数数组

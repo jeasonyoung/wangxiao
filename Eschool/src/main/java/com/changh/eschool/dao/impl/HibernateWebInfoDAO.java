@@ -9,6 +9,7 @@ import com.changh.eschool.entity.WebInfo;
 
 public class HibernateWebInfoDAO extends HibernateDaoSupport implements WebInfoDAO{
 
+	@SuppressWarnings("rawtypes")
 	public WebInfo findWebInfo() {		
 		List list = this.getHibernateTemplate().find("from WebInfo");
 		if(list!=null&&list.size()!=0){
@@ -17,5 +18,4 @@ public class HibernateWebInfoDAO extends HibernateDaoSupport implements WebInfoD
 			return null;
 		}
 	}
-
 }

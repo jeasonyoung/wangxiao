@@ -58,5 +58,4 @@ public class AddNoteAction extends BaseAction {
 	public void setClassDetailService(ClassDetailService classDetailService) {
 		this.classDetailService = classDetailService;
 	}
-
 }

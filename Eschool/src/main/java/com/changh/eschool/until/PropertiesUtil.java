@@ -2,7 +2,6 @@ package com.changh.eschool.until;
 
 import java.io.IOException;
 import java.util.Properties;
-
 /**
  * 解析properties文件的工具类
  * @author Administrator
@@ -27,7 +26,5 @@ public class PropertiesUtil {
 			return "";
 		}
 		return val;
-	}
-	
-	
+	}	
 }

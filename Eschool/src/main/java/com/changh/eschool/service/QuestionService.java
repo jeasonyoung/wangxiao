@@ -1,7 +1,6 @@
 package com.changh.eschool.service;
 
 import java.util.List;
-
 import com.changh.eschool.entity.Answer;
 import com.changh.eschool.entity.Question;
 

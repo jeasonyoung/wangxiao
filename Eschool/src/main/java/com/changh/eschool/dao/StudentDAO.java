@@ -3,7 +3,6 @@ import java.util.List;
 
 import com.changh.eschool.entity.Cooperate;
 import com.changh.eschool.entity.Student;
-import com.changh.eschool.entity.Teacher;
 
 //学员管理
 public interface StudentDAO {
@@ -30,8 +29,7 @@ public interface StudentDAO {
 	 * @param stuId
 	 * @return
 	 */
-	public Student findByStuId(int stuId);
-	
+	public Student findByStuId(int stuId);	
 	/**合作机构**/
 	public Cooperate findCooperate(String url);
 }

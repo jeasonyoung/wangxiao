@@ -1,10 +1,8 @@
 package com.changh.eschool.service.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 
 import com.changh.eschool.action.mobile.GradeGroup;
 import com.changh.eschool.dao.ClassPackageDAO;
@@ -62,6 +60,7 @@ public class ClassPackageServiceImpl implements ClassPackageService{
 		}	
 	}
 	////method for mobileApp 2013.06.14 fw/////
+	@SuppressWarnings("rawtypes")
 	public List<GradeGroup> findPackageGroupByExamId(int examId) {
 		List<GradeGroup> list1 = new ArrayList<GradeGroup>();
 		List<PackageCategory> list = classPackageDao.findByExamId(examId);
@@ -146,6 +145,5 @@ public class ClassPackageServiceImpl implements ClassPackageService{
 	public ClassPackage findById(int pkgId) {
 		
 		return classPackageDao.findById(pkgId);
-	}
-	
+	}	
 }

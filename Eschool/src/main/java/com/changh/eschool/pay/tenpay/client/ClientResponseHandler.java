@@ -31,6 +31,7 @@ public class ClientResponseHandler {
 	private String content;
 	
 	/** 应答的参数 */
+	@SuppressWarnings("rawtypes")
 	private SortedMap parameters; 
 	
 	/** debug信息 */
@@ -42,6 +43,7 @@ public class ClientResponseHandler {
 	/** 字符集 */
 	private String charset;
 	
+	@SuppressWarnings("rawtypes")
 	public ClientResponseHandler() {
 		this.content = "";
 		this.parameters = new TreeMap();
@@ -75,6 +77,7 @@ public class ClientResponseHandler {
 	 * @param parameter 参数名称
 	 * @param parameterValue 参数值
 	 */
+	@SuppressWarnings("unchecked")
 	public void setParameter(String parameter, String parameterValue) {
 		String v = "";
 		if(null != parameterValue) {
@@ -87,6 +90,7 @@ public class ClientResponseHandler {
 	 * 返回所有的参数
 	 * @return SortedMap
 	 */
+	@SuppressWarnings("rawtypes")
 	public SortedMap getAllParameters() {
 		return this.parameters;
 	}	
@@ -121,6 +125,7 @@ public class ClientResponseHandler {
 	 * 是否财付通签名,规则是:按参数名称a-z排序,遇到空值的参数不参加签名。
 	 * @return boolean
 	 */
+	@SuppressWarnings("rawtypes")
 	public boolean isTenpaySign() {
 		StringBuffer sb = new StringBuffer();
 		Set es = this.parameters.entrySet();
@@ -187,12 +192,11 @@ public class ClientResponseHandler {
 	/**
 	 * 解析XML内容
 	 */
+	@SuppressWarnings("rawtypes")
 	protected void doParse() throws JDOMException, IOException {
 		String xmlContent = this.getContent();
-		
 		//解析xml,得到map
 		Map m = XMLUtil.doXMLParse(xmlContent);
-		
 		//设置参数
 		Iterator it = m.keySet().iterator();
 		while(it.hasNext()) {
@@ -200,8 +204,5 @@ public class ClientResponseHandler {
 			String v = (String) m.get(k);
 			this.setParameter(k, v);
 		}
-		
 	}
-	
-
 }

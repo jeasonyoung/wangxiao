@@ -1,7 +1,5 @@
-
 package com.changh.eschool.action.member;
 
-import java.util.Iterator;
 import java.util.List;
 
 import com.changh.eschool.action.BaseAction;
@@ -55,5 +53,4 @@ public class ContentAction extends BaseAction {
 	public void setPayflag(Integer payflag) {
 		this.payflag = payflag;
 	}
-
 }

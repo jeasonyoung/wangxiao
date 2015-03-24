@@ -7,9 +7,7 @@ import java.util.Date;
  */
 
 public class Comment implements java.io.Serializable {
-
-	// Fields
-
+	private static final long serialVersionUID = 1L;
 	private Integer commentId;
 	private Integer id;
 	private String commentContent;
@@ -20,7 +18,6 @@ public class Comment implements java.io.Serializable {
 	private Student student;
 
 	// Constructors
-
 	/** default constructor */
 	public Comment() {
 	}
@@ -107,5 +104,4 @@ public class Comment implements java.io.Serializable {
 	public void setStudent(Student student) {
 		this.student = student;
 	}
-
 }

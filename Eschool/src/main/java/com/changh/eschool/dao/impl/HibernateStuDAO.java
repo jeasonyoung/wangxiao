@@ -14,11 +14,11 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.changh.eschool.dao.StudentDAO;
 import com.changh.eschool.entity.Cooperate;
 import com.changh.eschool.entity.Student;
-import com.changh.eschool.entity.Teacher;
 
 
 public class HibernateStuDAO extends HibernateDaoSupport implements StudentDAO{
 	//找出所有，
+	@SuppressWarnings("unchecked")
 	public List<Student> findAll()throws Exception
 	{
 		String hql ="from Student";
@@ -29,6 +29,7 @@ public class HibernateStuDAO extends HibernateDaoSupport implements StudentDAO{
 	 * 找出添加时间在d1，和d2之间的所有学员
 	 * 参数：d1，d2 两个时间，必须d1先于d2
 	 */
+	@SuppressWarnings("unchecked")
 	public List<Student> select(String date) throws Exception {
 		//创建Date对象
 		Date endDate = new Date();
@@ -92,29 +93,30 @@ public class HibernateStuDAO extends HibernateDaoSupport implements StudentDAO{
 		this.getHibernateTemplate().saveOrUpdate(stu);
 	}
 	//	查询指定用户名的学员
+	@SuppressWarnings("unchecked")
 	public Student findByUsername(String username) throws Exception {
 		// TODO Aut
 		String hql = "from Student where stuUsername=?";
 		Object[] params = {username};
-		List<Student> list = this.getHibernateTemplate()
-				.find(hql,params);
+		List<Student> list = this.getHibernateTemplate().find(hql,params);
 		if(!list.isEmpty()){
 			return list.get(0);
 		}
 		return null;
 	}
 	//	查询指定Email的学员
+	@SuppressWarnings("unchecked")
 	public Student findByEmail(String email) throws SQLException {
 		String hql = "from Student where stuEmail=?";
 		Object[] params = {email};
-		List<Student> list = this.getHibernateTemplate()
-				.find(hql,params);
+		List<Student> list = this.getHibernateTemplate().find(hql,params);
 		if(!list.isEmpty()){
 			return list.get(0);
 		}
 		return null;
 	}
 	//分页查询
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Student> findPage(final int page,final int size)
 	{
 		return (List)this.getHibernateTemplate().execute(
@@ -132,9 +134,9 @@ public class HibernateStuDAO extends HibernateDaoSupport implements StudentDAO{
 			}
 		);
 	}
+	@SuppressWarnings("unchecked")
 	public boolean isExist(String username, String email) throws Exception {
 		// TODO Auto-generated method stub
-
 		String hql = "from Student  where stuUsername =? or stuEmail =?";
 		Object[] params ={username,email}; 
 		List<Student> list = this.getHibernateTemplate().find(hql, params);
@@ -146,21 +148,18 @@ public class HibernateStuDAO extends HibernateDaoSupport implements StudentDAO{
 		String hql ="from Student s where s.stuId="+stuId;
 		return (Student) this.getHibernateTemplate().find(hql).get(0);
 	}
-
 	
 	/**********************************************/
 	/*合作机构查询*/
 	/**********************************************/
 	
+	@SuppressWarnings("unchecked")
 	public Cooperate findCooperate(String url){
-		
-		List<Cooperate> list = this.getHibernateTemplate()
-				.find("from Cooperate  c where c.coopUrl=?",url);
+		List<Cooperate> list = this.getHibernateTemplate().find("from Cooperate  c where c.coopUrl=?",url);
 		if(!list.isEmpty()){
 			return list.get(0);
 		}else{
 			return null;
 		}
-		
 	}
 }

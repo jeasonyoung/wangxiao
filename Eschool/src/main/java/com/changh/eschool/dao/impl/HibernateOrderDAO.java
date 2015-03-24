@@ -17,6 +17,7 @@ import com.changh.eschool.entity.Order;
 public class HibernateOrderDAO extends HibernateDaoSupport implements OrderDAO {
 	
 	//按条件查询并分页
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Order> findPageByCriteria(final int page,final int pagesize,final
 			String criteria,final String sortname,final String sortorder) throws Exception {
 		return (List)this.getHibernateTemplate().execute(
@@ -34,7 +35,7 @@ public class HibernateOrderDAO extends HibernateDaoSupport implements OrderDAO {
 				}
 			);
 		}
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Order> findPageByItemKeywords(final int page,final int pagesize,final
 			int stuId,final String keywords,final String sortname,final String sortorder) throws Exception {
 			List<Object[]> list1 =  (List<Object[]>)this.getHibernateTemplate().execute(
@@ -70,12 +71,14 @@ public class HibernateOrderDAO extends HibernateDaoSupport implements OrderDAO {
 			return list;
 	}
 	//在指定条件下的订单总数
+	@SuppressWarnings("unchecked")
 	public long findTotal(String criteria) throws Exception {
 		String hql = "select count(distinct o.orderId) from Order o "+criteria;
 		List<Long> list =this.getHibernateTemplate().find(hql);
 		return list.get(0);
 	}
 	//生成订单，返回刚生成的主键id
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public int save(final Order order) throws Exception {
 		return (Integer) this.getHibernateTemplate().execute(
 				new HibernateCallback()
@@ -103,12 +106,14 @@ public class HibernateOrderDAO extends HibernateDaoSupport implements OrderDAO {
 		return (Order) this.getHibernateTemplate().get(Order.class, id);
 	}
 	//find items by order id
+	@SuppressWarnings("unchecked")
 	public List<Items> findItemsByOrderId(int orderId) throws Exception {
 		// TODO Auto-generated method stub
 		String hql ="from Items where orderId="+orderId;
 		return this.getHibernateTemplate().find(hql);
 	}
 	//find by stuId
+	@SuppressWarnings("unchecked")
 	public List<Order> findItemsByStuId(int stuId,int status) throws Exception {
 		String hql="";
 		if(status==-1){
@@ -127,6 +132,7 @@ public class HibernateOrderDAO extends HibernateDaoSupport implements OrderDAO {
 		this.getHibernateTemplate().delete(order);
 		return true;
 	}
+	@SuppressWarnings("unchecked")
 	public Order findByNo(String orderNo) throws Exception {
 		// TODO Auto-generated method stub
 		String hql = "from Order where orderNo = ?";
@@ -135,6 +141,7 @@ public class HibernateOrderDAO extends HibernateDaoSupport implements OrderDAO {
 		if(list.isEmpty()) return null;
 		return list.get(0);
 	}
+	@SuppressWarnings("unchecked")
 	public Order findBy2Id(int orderId, int stuId) throws Exception {
 		// TODO Auto-generated method stub
 		String hql = "from Order o where o.orderId = ? and o.student.stuId = ?";

@@ -17,6 +17,7 @@ public class HibernateSendDAO extends HibernateDaoSupport implements SendDAO {
 		return (Send) this.getHibernateTemplate().get(Send.class, sendId);
 	}
 	//按条件搜索，分页
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Send> findPageByCriteria(final int page,final  int pagesize,
 			final String criteria, final String sortname,final  String sortorder)
 			throws Exception {
@@ -36,12 +37,14 @@ public class HibernateSendDAO extends HibernateDaoSupport implements SendDAO {
 			);
 	}
 	//指定条件下的总数
+	@SuppressWarnings("unchecked")
 	public long findTotal(String criteria) throws Exception {
 		String hql = "select count(*) from Send "+criteria;
 		List<Long> list =this.getHibernateTemplate().find(hql);
 		return list.get(0);
 	}
 //	搜索
+	@SuppressWarnings({ "unchecked" })
 	public List<Send> search(String str, String searchName) throws Exception {
 		String hql="from Send where "+searchName+"=?";
 		Object[] params=new Object[1];
@@ -54,8 +57,7 @@ public class HibernateSendDAO extends HibernateDaoSupport implements SendDAO {
 			params[0]=str;
 		}
 		
-		List list=this.getHibernateTemplate().find(hql, params);
-		return list;
+		return this.getHibernateTemplate().find(hql, params);
 	}
 	//更新
 	public void update(Send send) throws Exception {
@@ -63,12 +65,11 @@ public class HibernateSendDAO extends HibernateDaoSupport implements SendDAO {
 		this.getHibernateTemplate().update(send);
 	}
 	//根据订单号查询
+	@SuppressWarnings("unchecked")
 	public List<Send> findByOrderId(int orderId) throws Exception {
 		String hql = "from Send where orderId = ?";
 		Object[] param = new Object[]{orderId};
-		return this.getHibernateTemplate()
-				.find(hql,param);
-
+		return this.getHibernateTemplate().find(hql,param);
 	}
 	//生成寄送单
 	public void save(Send send) throws Exception {
@@ -76,6 +77,7 @@ public class HibernateSendDAO extends HibernateDaoSupport implements SendDAO {
 		this.getHibernateTemplate().save(send);
 	}
 	//搜索
+	@SuppressWarnings("unchecked")
 	public List<Send> searchPage(String criteria, Date addDate, Date confirmDate)
 			throws Exception {
 		StringBuffer hql = new StringBuffer(); 
@@ -103,6 +105,7 @@ public class HibernateSendDAO extends HibernateDaoSupport implements SendDAO {
 		return this.getHibernateTemplate().find(hql.toString());
 	}
 	//搜索2
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Send> searchPage(final int page, final int pagesize,final  String criteria,
 			final Date addDate, final Date confirmDate,final  String sortname,final  String sortorder)
 			throws Exception {
@@ -145,6 +148,7 @@ public class HibernateSendDAO extends HibernateDaoSupport implements SendDAO {
 				}
 			);
 	}
+	@SuppressWarnings("unchecked")
 	public Send findNoAddress(int stuId) throws Exception {
 		// TODO Auto-generated method stub
 		String hql = "select s from Send s,Order o where s.orderId = o.orderId and o.student.stuId = ? and s.sendFullAddress is null";

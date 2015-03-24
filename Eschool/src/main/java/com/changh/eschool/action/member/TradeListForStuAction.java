@@ -3,7 +3,6 @@ package com.changh.eschool.action.member;
 import java.util.List;
 
 import com.changh.eschool.action.BaseAction;
-import com.changh.eschool.entity.RechargeRecord;
 import com.changh.eschool.entity.Student;
 import com.changh.eschool.entity.Trade;
 import com.changh.eschool.service.StudyCardService;
@@ -59,5 +58,4 @@ public class TradeListForStuAction extends BaseAction{
 		total = (int)studyCardService.findTradeTotalByStuId(student.getStuId());
 		return "success";
 	}
-
 }

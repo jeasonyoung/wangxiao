@@ -51,6 +51,7 @@ public class AddAdviceAction {
 	public String getContent() {
 		return content;
 	}
+	@SuppressWarnings("deprecation")
 	public void setContent(String content) {
 		this.content = URLDecoder.decode(content);
 	}
@@ -65,6 +66,5 @@ public class AddAdviceAction {
 	}
 	public Map<String,Object>  getResult() {
 		return result;
-	}
-	
+	}	
 }

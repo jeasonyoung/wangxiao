@@ -1,10 +1,8 @@
 package com.changh.eschool.service;
 
 import java.util.List;
-
 import com.changh.eschool.entity.AskOrComplain;
 import com.changh.eschool.entity.Reply;
-
 public interface AskOrComplainService {
 	public void save(AskOrComplain ac)throws Exception;
 	public void update(AskOrComplain ac)throws Exception;

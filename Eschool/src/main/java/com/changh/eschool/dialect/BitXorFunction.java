@@ -10,6 +10,8 @@ import org.hibernate.engine.SessionFactoryImplementor;
 import org.hibernate.type.Type;
 
 public class BitXorFunction implements SQLFunction{
+	
+	@SuppressWarnings("deprecation")
 	public Type getReturnType(Type type, Mapping mapping) {
 		return Hibernate.INTEGER;
 	}
@@ -19,6 +21,7 @@ public class BitXorFunction implements SQLFunction{
 	public boolean hasParenthesesIfNoArguments() {
 		return true;
 	}
+	@SuppressWarnings("rawtypes")
 	public String render(List args, SessionFactoryImplementor factory)
 			throws QueryException {
 		if (args.size() != 2) {
@@ -27,6 +30,7 @@ public class BitXorFunction implements SQLFunction{
 		}
 		return args.get(0).toString() + " ^ " + args.get(1).toString();
 	}
+	@SuppressWarnings("rawtypes")
 	@Override
 	public String render(Type firstArgumentType, List args, SessionFactoryImplementor factory) throws QueryException {
 		if (args.size() != 2) {

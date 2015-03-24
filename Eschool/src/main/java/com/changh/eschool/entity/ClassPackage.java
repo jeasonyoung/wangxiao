@@ -3,16 +3,12 @@ package com.changh.eschool.entity;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 /**
  * ClassPackage entity. @author MyEclipse Persistence Tools
  */
 
 public class ClassPackage implements java.io.Serializable {
-
-	// Fields
-
+	private static final long serialVersionUID = 1L;
 	private Integer pkgId;
 	private Integer id;
 	private Integer dealId;
@@ -36,7 +32,6 @@ public class ClassPackage implements java.io.Serializable {
 	 * 根据班级获得老师姓名
 	 */
 	private HashSet<SimpleTeacher> tch;
-	
 	// Constructors
 	private List<Teacher> teacher;
 	private Date orderTime;
@@ -255,5 +250,4 @@ public class ClassPackage implements java.io.Serializable {
 	public void setTch(HashSet<SimpleTeacher> tch) {
 		this.tch = tch;
 	}
-
 }

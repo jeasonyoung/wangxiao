@@ -15,6 +15,7 @@ public class HibernateTradeDAO extends HibernateDaoSupport implements TradeDAO{
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().save(trade);
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List<Trade> findPageByStuId(final int stuId, final int tradeType, final int page,
 			final int pagesize, final String sortname, final String sortorder) throws Exception {

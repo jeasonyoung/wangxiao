@@ -11,6 +11,8 @@ import com.changh.eschool.dao.QuestionCollectDAO;
 import com.changh.eschool.entity.QuestionCollect;
 
 public class HibernateQuestionCollectDAO extends HibernateDaoSupport implements QuestionCollectDAO {
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<QuestionCollect> findByStuId(final int page, final int pagesize,
 			final String sortname,final String sortorder,final int stuId) throws Exception {
 		// TODO Auto-generated method stub
@@ -38,6 +40,7 @@ public class HibernateQuestionCollectDAO extends HibernateDaoSupport implements 
 	{
 		this.getHibernateTemplate().delete(qc);
 	}
+	@SuppressWarnings("rawtypes")
 	public QuestionCollect isCollected(int stuId, int questionId)
 			throws Exception {
 		// TODO Auto-generated method stub
@@ -47,6 +50,7 @@ public class HibernateQuestionCollectDAO extends HibernateDaoSupport implements 
 		if(list.isEmpty()) return null;
 		return (QuestionCollect) list.get(0);
 	}
+	@SuppressWarnings("rawtypes")
 	public long findTotalByStuId(int stuId) throws Exception {
 		// TODO Auto-generated method stub
 		String hql ="select count(*) from QuestionCollect qc where qc.student.stuId = ?";
