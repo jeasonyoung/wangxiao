@@ -11,16 +11,16 @@
 	<META name="ROBOTS" content="All" />
 	<META name="Description" content="优异网校,全国十佳职业培训网校，官方指定2013年一级建造师等建筑工程考试及管理类联考网上学习平台" />
 	<META name="keywords" content="优异网校,一级建造师网校,2013年一级建造师网络课堂,大立网校" />
-	<link rel="stylesheet" type="text/css" href="/main/css/index.css">
-	<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
-    <script src="artDialog/jquery.artDialog.js?skin=default" type="text/javascript"></script> 
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/main/css/index.css">
+	<script src="<%=request.getContextPath()%>js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="<%=request.getContextPath()%>artDialog/jquery.artDialog.js?skin=default" type="text/javascript"></script> 
 	<script language="javascript">
 		var currentindex=1;//flash图片参数
 		$(function(){
 			//发送ajax请求,加载new.jsp信息
-			$("#top").load("/common/head1.jsp?date="+Math.random());
-			$("#foot").load("/common/foot1.html");
-			$("#main").load("/main/exam.html?time="+Math.random());
+			$("#top").load("<%=request.getContextPath()%>/common/head1.jsp?date="+Math.random());
+			$("#foot").load("<%=request.getContextPath()%>/common/foot1.html");
+			$("#main").load("<%=request.getContextPath()%>/main/exam.html?time="+Math.random());
 			
 		});
 		function onOver(id){
@@ -197,33 +197,33 @@
         <ul id="picList">
           <li class="slide_li first">
             <div class="imgBg_1"></div>
-            <img class="slide_img" src="/images/1010-360.jpg" /> </li>
+            <img class="slide_img" src="<%=request.getContextPath()%>/images/1010-360.jpg" /> </li>
           <li class="slide_li">
             <div class="imgBg_2"></div>
-            <img class="slide_img" src="/images/1010-3602.jpg" /></li>
+            <img class="slide_img" src="<%=request.getContextPath()%>/images/1010-3602.jpg" /></li>
           <li class="slide_li">
             <div class="imgBg_3"></div>
-            <img class="slide_img" src="/images/1010-3603.jpg" /> </li>
+            <img class="slide_img" src="<%=request.getContextPath()%>/images/1010-3603.jpg" /> </li>
           <li class="slide_li">
             <div class="imgBg_4"></div>
-            <img class="slide_img" src="/images/1010-3604.jpg" /> </li>
+            <img class="slide_img" src="<%=request.getContextPath()%>/images/1010-3604.jpg" /> </li>
           <li class="slide_li">
             <div class="imgBg_5"></div>
-            <img class="slide_img" src="/images/1010-3605.jpg" /> </li>
+            <img class="slide_img" src="<%=request.getContextPath()%>/images/1010-3605.jpg" /> </li>
         </ul>
         <div id="slideThumb"></div>
       </div>
     </div>
-    <script type="text/javascript" src="/js/image.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/image.js"></script>
   <div id="cu3er_swf"></div>
   <div class="root"> 
-  	<a href="/main/exam1011.html" target="_blank"><img src="/main/images/navlo06.png" /></a>
-  	<a href="/main/exam1015.html" target="_blank"><img src="/main/images/navlo02.png" /></a> 
-  	<a href="/main/exam1033.html" target="_blank" class="rootright"><img src="/main/images/navlo03.png" /></a>  
+  	<a href="<%=request.getContextPath()%>/main/exam1011.html" target="_blank"><img src="<%=request.getContextPath()%>/main/images/navlo06.png" /></a>
+  	<a href="<%=request.getContextPath()%>/main/exam1015.html" target="_blank"><img src="<%=request.getContextPath()%>/main/images/navlo02.png" /></a> 
+  	<a href="<%=request.getContextPath()%>/main/exam1033.html" target="_blank" class="rootright"><img src="<%=request.getContextPath()%>/main/images/navlo03.png" /></a>  
   <div style="clear:both;"></div>
-  	<a href="/main/exam1047.html" target="_blank"><img src="/main/images/navlo04.png" /></a>
-  	<a href="/main/exam1012.html" target="_blank"><img src="/main/images/navlo05.png" /></a>
-  	<a href="/main/exam1002.html" target="_blank" class="rootright"><img src="/main/images/navlo01.png" /></a> 
+  	<a href="<%=request.getContextPath()%>/main/exam1047.html" target="_blank"><img src="<%=request.getContextPath()%>/main/images/navlo04.png" /></a>
+  	<a href="<%=request.getContextPath()%>/main/exam1012.html" target="_blank"><img src="<%=request.getContextPath()%>/main/images/navlo05.png" /></a>
+  	<a href="<%=request.getContextPath()%>/main/exam1002.html" target="_blank" class="rootright"><img src="<%=request.getContextPath()%>/main/images/navlo01.png" /></a> 
   <div style="clear:both;"></div>
   </div>
 </div>
